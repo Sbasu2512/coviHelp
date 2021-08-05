@@ -1,6 +1,11 @@
 class Api::TestingLocationsController < ApplicationController
+  
+  
+  
+  
+  
   def index
-    render json: TestingLocation.new
+    render json: TestingLocation.all
   end
 
 end
