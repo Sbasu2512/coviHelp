@@ -20,11 +20,10 @@ L.Marker.prototype.options.icon = DefaultIcon;
 function Map(props) {
 
   const locations = props.locations.data;
-  Object.keys(locations[0]).forEach(attr => console.log(attr))   
   return (
     <div className={props.locations.type}>
-      <p>{locations[0].location_name}</p>
-      <MapContainer center={[locations[0].latitude, locations[0].longitude]} zoom={16} scrollWheelZoom={false}>
+      <h3>Testing Locations</h3>
+      <MapContainer center={[locations[0].latitude, locations[0].longitude]} zoom={5} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -36,9 +35,6 @@ function Map(props) {
           </Popup>
         </Marker>
       </MapContainer>
-      <div>
-        {Object.keys(locations[0]).map(attr => <p>t.string :${attr}</p>)}
-      </div>
     </div>
 
   );

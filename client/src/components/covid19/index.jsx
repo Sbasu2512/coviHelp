@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+import TestingLocations from "../testing-locations/index"
 
-const covid = () => {
+
+const Covid = () => {
 
   const src = require('../../helpers/img/fusion-medical-animation-rnr8D3FNUNY-unsplash.jpg') ;
 
@@ -50,8 +53,11 @@ const covid = () => {
         </ul>
         <p>Source: Centers for Disease Control and Prevention</p>
       </section>
+      <TestingLocations />
     </div>
+
+
   );
 };
 
-export default covid;
+export default Covid;
