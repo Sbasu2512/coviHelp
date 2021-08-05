@@ -15,8 +15,8 @@ export default function TestingLocation(props) {
   
   const getTestingLocations = () => {
 
-    axios.get('localhost:3000/api/testing_locations')
-      .then(data => console.log(data))
+    axios.get('http://localhost:3000/api/testing_locations')
+      .then(res => console.log(res.data))
   }
   
   
