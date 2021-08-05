@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import TestingLocations from "../testing-locations/index"
+import TestingLocations from "./testing-locations/index"
 
 
 const Covid = () => {
