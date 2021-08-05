@@ -1,6 +1,6 @@
 import "./style.css";
 
-import Map from "../../helpers/map/Map"
+import Map from "./Map"
 
 import testingLocations from "./data/locations"
 

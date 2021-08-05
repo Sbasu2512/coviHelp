@@ -37,11 +37,7 @@ function Map(props) {
         </Marker>
       </MapContainer>
       <div>
-        Here some details about the cetner or what ever we want!
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+        {Object.keys(locations[0]).map(attr => <p>t.string :${attr}</p>)}
       </div>
     </div>
 
