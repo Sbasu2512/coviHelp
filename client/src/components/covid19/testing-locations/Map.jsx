@@ -8,31 +8,29 @@ import L from 'leaflet';
 
 import "leaflet/dist/leaflet.css"
 
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconVaccine from 'leaflet/dist/images/syringe.png';
-import iconTesting from 'leaflet/dist/images/testing.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import icon from './img/marker-icon.png';
+import iconVaccine from './img/syringe.png';
+import iconTesting from './img/covid-test.png';
+import iconShadow from './img/marker-shadow.png';
 
-let userIcon = L.icon({
+const userIcon = new L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow,
     iconSize: [25, 41],
     iconAnchor: [12, 41]
 });
 
-let vaccineIcon = L.icon({
+const vaccineIcon = new L.icon({
   iconUrl: iconVaccine,
   iconSize: [32, 32],
   iconAnchor: [0, 32]
 });
 
-let testingIcon = L.icon({
+const testingIcon = new L.icon({
   iconUrl: iconTesting,
   iconSize: [32, 32],
-  iconAnchor: [32, 32]
+  iconAnchor: [16, 16]
 });
-
-L.Marker.prototype.options.icon = testingIcon;
 
 
 
@@ -40,7 +38,6 @@ function Map(props) {
 
   const { userCoordinates, testingLocations } = props.data;
   testingLocations.forEach(location => {
-    console.log(location.active)
   });
   return (
     <div className="map">
@@ -50,16 +47,20 @@ function Map(props) {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <Marker position={userCoordinates} icon={userIcon} ><Popup>You are here!</Popup></Marker>
         {
           testingLocations.map(location =>
-            <Marker position={[location.latitude, location.longitude]}>
+            <Marker
+              position={[location.latitude, location.longitude]}
+              icon={testingIcon}
+              key={`location${location.id}`}
+            >
               <Popup>
-                location
+                {location.location_name}
               </Popup>
             </Marker>
           )
         }
-
       </MapContainer>
     </div>
   );
