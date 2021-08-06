@@ -7,6 +7,7 @@ import Dashboard from './components/dashboard/index';
 import Symptoms from './components/symptoms/Symptoms';
 import Home from './components/symptoms/Home';
 import covid19 from './components/covid19/index.jsx'
+import Login from './components/login';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route path="/covid19" component={covid19} />
           <Route path="/social" component={Symptoms}/>
           <Route path="/dashboard" component={TestingLocations} />
+          <Route path="/login" component={Login} />
+          <Route path='/logout' component={Home} />
           <Dashboard />  
           </Route>
         </Switch>
