@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_134205) do
+ActiveRecord::Schema.define(version: 2021_08_05_164704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,61 @@ ActiveRecord::Schema.define(version: 2021_08_05_134205) do
 
   create_table "symptoms", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "testing_locations", force: :cascade do |t|
+    t.string "active"
+    t.string "temporarily_closed"
+    t.string "location_id"
+    t.string "pharmacy"
+    t.string "community_lab"
+    t.string "assessment_centre"
+    t.string "location_name"
+    t.string "location_name_fr"
+    t.string "operated_by"
+    t.string "operated_by_fr"
+    t.string "city"
+    t.string "address"
+    t.string "address_fr"
+    t.string "postal_code"
+    t.string "province"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "phu_id"
+    t.string "phu"
+    t.string "phu_fr"
+    t.string "phone"
+    t.string "website"
+    t.string "email"
+    t.string "monday"
+    t.string "tuesday"
+    t.string "wednesday"
+    t.string "thursday"
+    t.string "friday"
+    t.string "saturday"
+    t.string "sunday"
+    t.string "after_hours"
+    t.string "appointments"
+    t.string "online_appointments"
+    t.string "phone_appointments"
+    t.string "walk_ins"
+    t.string "symptomatic"
+    t.string "drive_through"
+    t.string "general_population"
+    t.string "children_under_2"
+    t.string "age_threshold"
+    t.string "weeks_pregnant"
+    t.string "french_language_services"
+    t.string "accessible"
+    t.string "asl_interpretation"
+    t.string "first_nations"
+    t.string "free_parking"
+    t.string "paid_parking"
+    t.string "public_transit"
+    t.string "additional_information"
+    t.string "additional_information_fr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,13 +1,17 @@
 import './App.css';
-import TestingLocations from "./components/testing-locations/index"
+
 
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import Navigation from './components/Navigation';
 import Dashboard from './components/dashboard/index';
 import Symptoms from './components/symptoms/Symptoms';
+
 import Home from './components/symptoms/Home';
 import covid19 from './components/covid19/index.jsx'
 import Login from './components/login';
+
+import Covid19 from './components/covid19/index.jsx'
+
 
 function App() {
   return (
@@ -17,13 +21,22 @@ function App() {
         <Navigation />
         <Switch>
           <Route path="/">
-          <Route path="/vaccine" component={TestingLocations} />
-          <Route path="/covid19" component={covid19} />
+          <Route path="/vaccine" component={} />
           <Route path="/social" component={Symptoms}/>
-          <Route path="/dashboard" component={TestingLocations} />
+          <Route path="/dashboard" component={} />
           <Route path="/login" component={Login} />
           <Route path='/logout' component={Home} />
           <Dashboard />  
+
+          <Route path="/covid19" component={Covid19} />
+          <Route path="/symptoms" component={Symptoms}/>
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/login">
+            <p>Login here!!</p>
+          </Route>
+          <Route path="/home">
+            <p>Welcome Guest</p>
+          </Route>
           </Route>
         </Switch>
       </Router>

@@ -2,9 +2,9 @@ const TestimonialsListItem = (props) => {
   return (
     <div>
       
-        <article>
+        <article key={props.testimonial.id}>
           <header><div>{props.testimonial.user_name}</div></header>
-          <p> {props.testimonial.text}</p>
+          <p> {props.testimonial.content}</p>
           <footer>
             <button>Reply</button>
           </footer>

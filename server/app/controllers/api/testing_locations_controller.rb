@@ -1,6 +1,12 @@
 class Api::TestingLocationsController < ApplicationController
-  def show
-    puts 'Hi'
-    redirect_to '/'
+  
+  
+  
+  
+  
+  def index
+    
+    render json: TestingLocation.all
   end
+
 end

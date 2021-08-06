@@ -1,0 +1,2 @@
+class TestingLocation < ApplicationRecord
+end

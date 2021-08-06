@@ -19,6 +19,7 @@ const Navigation = (props) => {
       <Link to="/login">Login</Link>
       </div>
      } 
+
     </nav>
   );
 };
