@@ -14,7 +14,6 @@ const SymptomList = (props) => {
           key={symptom.id}
           id={symptom.id}
           name={symptom.name}
-          reported={symptom.reported_times}
         />)
       }
 
