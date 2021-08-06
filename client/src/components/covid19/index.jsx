@@ -15,7 +15,12 @@ const Covid = () => {
       .then(res => {
         navigator.geolocation.getCurrentPosition(function(position) {
           setUserCoordinates([position.coords.latitude, position.coords.longitude])
-          setTestingLocations(res.data);
+          setTestingLocations(res.data.filter(location => 
+            location.active !== null &&
+            location.active !== 'No' &&
+            location.latitude !== null &&
+            location.longitude !== null
+          ));
         });
       });
     

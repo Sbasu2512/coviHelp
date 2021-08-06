@@ -1,5 +1,6 @@
-.testing-locations {
-  border: 5px solid;
+.map {
+  border-top: 15px solid;
+  border-bottom: 15px solid;
 }
 
 .leaflet-container {
