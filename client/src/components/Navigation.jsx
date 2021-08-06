@@ -6,7 +6,7 @@ const Navigation = () => {
       <Link to="/home">Home - </Link>
       <Link to="/login">Login - </Link>
       <Link to="/covid19">Covid-19 - </Link>
-      <Link to="/social">Social</Link>
+      <Link to="/symptoms">Social</Link>
 
     </nav>
   );

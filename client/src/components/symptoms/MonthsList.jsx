@@ -3,7 +3,6 @@ import MonthListItem from "./MonthListItem";
 
 const MonthsList = (props) => {
   const months = props.months;
-  console.log(months)
   return (
     <div>
       <h1>Diagnozed within:</h1>

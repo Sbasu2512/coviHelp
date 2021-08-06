@@ -15,7 +15,7 @@ function App() {
         <Navigation />
         <Switch>
           <Route path="/covid19" component={Covid19} />
-          <Route path="/social" component={Symptoms}/>
+          <Route path="/symptoms" component={Symptoms}/>
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/login">
             <p>Login here!!</p>

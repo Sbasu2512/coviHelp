@@ -4,13 +4,13 @@ import SymptomListItem from "./SymptomListItem";
 
 const SymptomList = (props) => {
   const symptoms = props.symptoms;
-  console.log(symptoms)
+  
   return (
     <ul   >
       <h2>Symptoms List</h2>
-      <li>
+      
       { 
-        symptoms.map((symptom) => <SymptomListItem
+        symptoms.map((symptom) => <SymptomListItem surveys ={props.surveys}
           key={symptom.id}
           id={symptom.id}
           name={symptom.name}
@@ -18,7 +18,7 @@ const SymptomList = (props) => {
         />)
       }
 
-      </li>
+    
     </ul>
 
   )
