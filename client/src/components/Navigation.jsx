@@ -6,8 +6,9 @@ const Navigation = (props) => {
     <nav>
       <Link to="/">Home </Link>
       <Link to="/symptoms">Social </Link>
-      <span>Logged as <strong>User123</strong></span>
-
+      <span>Logged as <strong>user123</strong></span>
+      <br />
+      <br />
     </nav>
   );
 };
