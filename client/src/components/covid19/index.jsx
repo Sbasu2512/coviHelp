@@ -1,12 +1,27 @@
-import { Link } from "react-router-dom";
 import TestingLocations from "./testing-locations/index"
 
+import axios from 'axios'
+import { useEffect, useState } from "react";
 
 const Covid = () => {
 
   const src = require('../../helpers/img/fusion-medical-animation-rnr8D3FNUNY-unsplash.jpg') ;
+  
+  const [testingLocations, setTestingLocations] = useState(null)
+  const [userCoordinates, setUserCoordinates] = useState(null)
 
-    return (
+  useEffect (() => {
+    axios.get('http://localhost:3000/api/testing_locations')
+      .then(res => {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          setUserCoordinates([position.coords.latitude, position.coords.longitude])
+          setTestingLocations(res.data);
+        });
+      });
+    
+  }, [])
+
+  return (
     <div>
       <img src={src} alt="imageofcovidvirus"/>
       <section>
@@ -36,7 +51,7 @@ const Covid = () => {
         <h2>I think I'm infected, now what?</h2>
         <ul>
           <li>
-             Inform institution/health organization in your country via the emergency number, which will tell you what to do next.
+              Inform institution/health organization in your country via the emergency number, which will tell you what to do next.
           </li>
           <li>
             Self-isolation at home has been recommended for people diagnosed with COVID-19 and those who suspect they have been infected.
@@ -53,10 +68,8 @@ const Covid = () => {
         </ul>
         <p>Source: Centers for Disease Control and Prevention</p>
       </section>
-      <TestingLocations />
+      {testingLocations && <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/>}
     </div>
-
-
   );
 };
 

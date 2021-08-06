@@ -1,3 +1,5 @@
+
+
 import './map.css'
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
@@ -19,19 +21,19 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 function Map(props) {
 
-  const locations = props.locations.data;
+  const { userCoordinates } = props.data;
+
   return (
-    <div className={props.locations.type}>
+    <div className='map'>
       <h3>Testing Locations</h3>
-      <MapContainer center={[locations[0].latitude, locations[0].longitude]} zoom={5} scrollWheelZoom={false}>
+      <MapContainer center={userCoordinates} zoom={12} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[locations[0].latitude, locations[0].longitude]}>
+        <Marker position={userCoordinates}>
           <Popup>
-            <p><a href={locations[0].website}>{locations[0].location_name}</a></p>
-            <a href={"tel:"+ locations[0].phone}>☎️{locations[0].phone}</a>
+              Home :)
           </Popup>
         </Marker>
       </MapContainer>
