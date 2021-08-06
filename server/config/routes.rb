@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
     resources :symptoms, only: [:index]
     resources :posts, only: [:index]
-    resources :surveys, only: [:index]
+    resources :surveys
   end
 end
