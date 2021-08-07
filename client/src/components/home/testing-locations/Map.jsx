@@ -41,7 +41,7 @@ function Map(props) {
   });
   return (
     <div className="map">
-      <h3>Helpful locations around you</h3>
+      <h2>Helpful locations around you</h2>
       <MapContainer center={userCoordinates} zoom={12} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
