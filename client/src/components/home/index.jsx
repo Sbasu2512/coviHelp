@@ -1,4 +1,5 @@
 import TestingLocations from "./testing-locations/index"
+import LoadingMap from "./LoadingMap/index"
 import Dashboard from "./dashboard/index"
 import GeneralInfo from "./general-info/index"
 
@@ -31,8 +32,8 @@ const Home = () => {
   return (
     <div>
       <Dashboard />
+      {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
       <GeneralInfo />
-      {testingLocations && <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/>}
     </div>
   );
 };

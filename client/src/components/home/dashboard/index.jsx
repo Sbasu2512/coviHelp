@@ -1,11 +1,12 @@
-import './style.css'
+const Dashboard = (props) => {
 
-const Dasboard = () => {
-    return (
-    <div className='dashboard'>
-      <h3>Statistics Here!!</h3>
+  return (
+    <div>
+      <h2>Statistics Here!</h2>
     </div>
-  );
-};
+  )
+}
 
-export default Dasboard;
+
+
+export default Dashboard;
