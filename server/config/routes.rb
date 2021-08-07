@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :testing_locations, only: [:index] 
     resources :users, only: [:index]
     resources :symptoms, only: [:index]
-    resources :posts, only: [:index]
-    resources :surveys, only: [:index]
+    resources :posts
+    resources :surveys
   end
 end

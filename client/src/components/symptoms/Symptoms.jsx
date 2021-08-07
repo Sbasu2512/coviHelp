@@ -8,38 +8,44 @@ import TestimonialsList from "./TestimonialsList";
 import Survey from "./Survey";
 import axios from "axios";
 
-
-
 const months = [
   { id: 1, name: `1 month` },
   { id: 2, name: `2 months` },
   { id: 3, name: `Three months` },
   { id: 4, name: `4 - 6 months` },
-  { id: 5, name: `Over 6 months` }
+  { id: 5, name: `Over 6 months` },
 ];
 
-
-
 const Symptoms = () => {
-
+  const [rerenderState, setRerenderState] = useState(0);
   const [state, setState] = useState({
     symptoms: [],
-    testimonials: [], 
-    surveys: []
-    
+    testimonials: [],
+    surveys: [],
   });
   useEffect(() => {
-   
     Promise.all([
-      axios.get('/api/symptoms'),
-      axios.get('/api/posts'),
-      axios.get('/api/surveys'),
+      axios.get("/api/symptoms"),
+      axios.get("/api/posts"),
+      axios.get("/api/surveys"),
     ]).then((all) => {
-      setState(prev => ({ ...prev, symptoms: all[0].data, testimonials: all[1].data, surveys: all[2].data }));
-    })
+      setState((prev) => ({
+        ...prev,
+        symptoms: all[0].data,
+        testimonials: all[1].data,
+        surveys: all[2].data,
+      }));
+    });
+    console.log("rerender");
+  }, [rerenderState]);
 
-  }, [])
 
+  const rerender = () => {
+    console.log("I am cool");
+    setRerenderState((prev) => prev + 1);
+  };
+
+  
   return (
     <div>
       <h1>Discuss symptoms</h1>
@@ -54,21 +60,22 @@ const Symptoms = () => {
       </div>
       <Switch>
         <Route path="/symptoms/all/:id">
-          <TestimonialsList testimonials={state.testimonials} />
+          <TestimonialsList testimonials={state.testimonials} rerender={rerender}/>
         </Route>
         <Route path="/symptoms/all">
-          <SymptomList symptoms={state.symptoms} surveys={state.surveys}/>
+          <SymptomList symptoms={state.symptoms} surveys={state.surveys} />
         </Route>
         <Route path="/symptoms/months/:id">
-          <Month symptoms={state.symptoms} surveys={state.surveys}/>
+          <Month symptoms={state.symptoms} surveys={state.surveys} />
         </Route>
         <Route path="/symptoms/months">
           <MonthsList months={months} />
         </Route>
         <Route path="/symptoms/survey">
-          <Survey symptoms={state.symptoms}/>
+          <Survey symptoms={state.symptoms} rerender={rerender}/>
         </Route>
       </Switch>
+      
     </div>
   );
 };
