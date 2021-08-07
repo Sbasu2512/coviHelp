@@ -7,8 +7,8 @@ class Api::SurveysController < ApplicationController
   def create
     @survey = Survey.new(survey_params)
     @survey.save!
+    puts survey_params
     puts @survey
-    
     
   end
 

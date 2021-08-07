@@ -11,7 +11,7 @@ const Month = (props) => {
   console.log(params.id);
   const surveys = props.surveys;
   console.log(surveys);
-  
+
   // console.log(symptomsBySurvey, 'SYMPTOMS BY SURVEY')
   function timeDiffInMonths(dateFrom, dateTo) {
     return (
@@ -20,15 +20,13 @@ const Month = (props) => {
       12 * (dateTo.getFullYear() - dateFrom.getFullYear())
     );
   }
-  
 
   const getSurveysByMonth = (arr, paramsId) => {
     return arr.filter((survey) => {
       const date = new Date(survey.time_diagnozed);
       const dateNow = new Date();
-      
-      if (paramsId === 4) {
 
+      if (paramsId === 4) {
         if (
           timeDiffInMonths(date, dateNow) >= 4 &&
           timeDiffInMonths(date, dateNow) <= 6
@@ -36,10 +34,9 @@ const Month = (props) => {
           return survey;
         }
       }
-      if (paramsId === 5) { 
-        console.log(timeDiffInMonths(date, dateNow))
+      if (paramsId === 5) {
+        console.log(timeDiffInMonths(date, dateNow));
         if (timeDiffInMonths(date, dateNow) > 6) {
-        
           return survey;
         }
       }
@@ -54,19 +51,25 @@ const Month = (props) => {
   const symptomsBySurvey = symptoms.filter((symptom) =>
     surveysByMonth.find((survey) => survey.symptom_id === symptom.id)
   );
-  console.log(symptomsBySurvey, 'symptoms by survey')
+  console.log(symptomsBySurvey, "symptoms by survey");
   console.log(surveys);
- 
+
   return (
     <div>
-      {symptomsBySurvey.length > 0 ? symptomsBySurvey.map((symptom) => (
-        <SymptomListItem
-          surveys={surveysByMonth}
-          id={symptom.id}
-          key={symptom.id}
-          name={symptom.name}
-        />
-      )) : <h2>No symptoms found within that period</h2> }
+      <ul>
+        {symptomsBySurvey.length > 0 ? (
+          symptomsBySurvey.map((symptom) => (
+            <SymptomListItem
+              surveys={surveysByMonth}
+              id={symptom.id}
+              key={symptom.id}
+              name={symptom.name}
+            />
+          ))
+        ) : (
+          <h2>No symptoms found within that period</h2>
+        )}
+      </ul>
     </div>
   );
 };

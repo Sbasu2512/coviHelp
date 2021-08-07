@@ -3,4 +3,24 @@ class Api::PostsController < ApplicationController
   @posts = Post.joins(:user).select('users.*, posts.*')
   render json: @posts 
   end
+
+  def create
+    @post = Post.new(post_params)
+    @post.save!
+    puts @post.inspect
+    
+    
+  end
+
+  private
+
+  def post_params
+    params.permit(
+      :user_id,
+      :symptom_id,
+      :content
+    )
+  end
+
+
 end
