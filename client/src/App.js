@@ -21,9 +21,8 @@ function App() {
         <Navigation />
         <Switch>
           <Route path="/">
-          <Route path="/vaccine" component={} />
+          
           <Route path="/social" component={Symptoms}/>
-          <Route path="/dashboard" component={} />
           <Route path="/login" component={Login} />
           <Route path='/logout' component={Home} />
           <Dashboard />  

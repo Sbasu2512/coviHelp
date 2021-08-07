@@ -8,7 +8,7 @@ const Navigation = (props) => {
       <Link to="/vaccine">Vaccine </Link>
       <Link to="/covid19">Covid-19 </Link>
       <Link to="/social">Social </Link>
-     if (user) { 
+      if(user) { 
         <div>
         <p>{username}</p>
         <Link to="/logout">Logout</Link>
