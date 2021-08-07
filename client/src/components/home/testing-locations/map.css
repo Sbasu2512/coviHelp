@@ -1,9 +1,9 @@
-.map {
-  border-top: 15px solid;
-  border-bottom: 15px solid;
-}
-
 .leaflet-container {
   width: 100vw;
   height: 50vh;
+}
+
+.map {
+  border-top: 15px solid;
+  border-bottom: 15px solid;
 }
