@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :symptoms, only: [:index]
     resources :posts
     resources :surveys
+    resources :likes
   end
 end

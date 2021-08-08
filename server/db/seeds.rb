@@ -233,7 +233,13 @@ puts ".....Feeding db"
 locations.each {|location| TestingLocation.create location}
 puts "-> Created #{locations.length()} locations"
 
+puts "Creating likes!"
+Like.destroy_all
 
+Like.create(post_id: 1)
+Like.create(post_id: 2)
+Like.create(post_id: 3)
+Like.create(post_id: 4)
 
 
 

@@ -9,7 +9,6 @@ const TestimonialsList = (props) => {
   const originalPosts = testimonialsBySymptom.filter((testimonial) => !testimonial.reply_to);
   const replies = testimonialsBySymptom.filter((testimonial) => testimonial.reply_to);
 
-  console.log(replies, 'this is replies');
 
   return (
     <div>
@@ -17,7 +16,7 @@ const TestimonialsList = (props) => {
         <Form symptom_id={parseInt(params.id)} rerender={props.rerender}/>
       </div>
       {originalPosts.map((testimonial) => (
-        <TestimonialsListItem key={testimonial.id} testimonial={testimonial} replies={replies} rerender={props.rerender}/>
+        <TestimonialsListItem key={testimonial.id} testimonial={testimonial} likes={props.likes} replies={replies} rerender={props.rerender}/>
       ))}
     </div>
   );

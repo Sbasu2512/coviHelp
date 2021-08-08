@@ -12,12 +12,10 @@ const Survey = (props) => {
     setDateDiagnozed(e.target.value);
   };
   const handleOnChange = (e) => {
-    console.log(e.target.value);
     if (e.target.checked) {
       setCheckedSymptoms((prev) => [...prev, parseInt(e.target.value)]);
     }
     if (!e.target.checked) {
-      console.log(e.target.value, "unchecked!");
       const newArray = checkedSymptoms.filter(
         (symptom) => symptom !== parseInt(e.target.value)
       );
@@ -27,9 +25,7 @@ const Survey = (props) => {
 
   const clickHandler = (e) => {
     e.preventDefault();
-    console.log(checkedSymptoms, dateDiagnozed);
     if (checkedSymptoms.length === 0 || dateDiagnozed.length === 0) {
-      console.log("PlEASE SELECT YOUR");
       setError(true);
       return;
     }
@@ -41,7 +37,6 @@ const Survey = (props) => {
           time_diagnozed: dateDiagnozed,
         })
         .then(() => {
-          console.log("sent request for symptom #", symp);
           props.rerender();
           setError(false);
           setThankyouMessage(true);
@@ -96,7 +91,7 @@ const Survey = (props) => {
             })}
           </div>
           {error && <h3>Please fill the survey form.</h3>}
-          <button>Send data!</button>
+          <button>Submit</button>
         </form>
       )}
     </div>

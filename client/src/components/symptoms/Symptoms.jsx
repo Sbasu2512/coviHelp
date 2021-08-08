@@ -22,26 +22,27 @@ const Symptoms = () => {
     symptoms: [],
     testimonials: [],
     surveys: [],
+    likes: []
   });
   useEffect(() => {
     Promise.all([
       axios.get("/api/symptoms"),
       axios.get("/api/posts"),
       axios.get("/api/surveys"),
+      axios.get("/api/likes")
     ]).then((all) => {
       setState((prev) => ({
         ...prev,
         symptoms: all[0].data,
         testimonials: all[1].data,
         surveys: all[2].data,
+        likes: all[3].data
       }));
     });
-    console.log("rerender");
   }, [rerenderState]);
 
 
   const rerender = () => {
-    console.log("I am cool");
     setRerenderState((prev) => prev + 1);
   };
 
@@ -60,7 +61,7 @@ const Symptoms = () => {
       </div>
       <Switch>
         <Route path="/symptoms/all/:id">
-          <TestimonialsList testimonials={state.testimonials} rerender={rerender}/>
+          <TestimonialsList testimonials={state.testimonials} likes={state.likes} rerender={rerender}/>
         </Route>
         <Route path="/symptoms/all">
           <SymptomList symptoms={state.symptoms} surveys={state.surveys} />

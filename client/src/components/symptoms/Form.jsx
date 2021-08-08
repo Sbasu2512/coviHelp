@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
+
+
 const Form = (props) => {
+
   const [text, setText] = useState("");
   const [error, setError] = useState(false);
+  const [showToReply, setShowToReply] = useState(true);
+  
+  useEffect(() => {
+    if(!showToReply) {
+      props.setShowFormToReply(false);
+    }
+    return () => {
+      setShowToReply(true);
+    }
+    
+  })
+
+  
+
 
   const onChange = (e) => {
     setText(e.target.value);
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(text, "This is submitted text!");
+    if(props.reply_to) {
+      setShowToReply(false);
+    }
+  
     if (text.length === 0) {
       setError(true);
       return;
@@ -23,7 +44,6 @@ const Form = (props) => {
         reply_to: props.reply_to
       })
       .then(() => {
-        
         setText('')
         setError(false);
         props.rerender();

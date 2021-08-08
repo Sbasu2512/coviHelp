@@ -14,7 +14,6 @@ const SymptomListItem = (props) => {
   const getNumberOfReported = (surveys) => {
     let result = 0;
     for (let survey of surveys) {
-      console.log('THIS IS SURVEY', survey, props.id, 'THIS IS SYMPTOM ID')
       if (survey.symptom_id === props.id) {
         result++;
       }
@@ -23,7 +22,6 @@ const SymptomListItem = (props) => {
   };
   
   const numberOfReported = getNumberOfReported(props.surveys);
-  console.log(props.survey, 'number of reported')
   return (
     <div>
       <li key={props.id}>

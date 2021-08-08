@@ -1,9 +1,8 @@
 import Reply from "./Reply";
-import { useState } from "react";
-import Form from './Form'
+import { useState, useEffect } from "react";
+import Form from "./Form";
 import { useParams } from "react-router";
-
-
+import axios from "axios";
 
 const TestimonialsListItem = (props) => {
   const params = useParams();
@@ -12,6 +11,10 @@ const TestimonialsListItem = (props) => {
   );
   const [showReplies, setShowReplies] = useState(false);
   const [showFormToReply, setShowFormToReply] = useState(false);
+  const [liked, setLiked] = useState(false);
+
+  
+ 
 
   const clickToShowReplies = (e) => {
     if (!showReplies) {
@@ -29,6 +32,33 @@ const TestimonialsListItem = (props) => {
     }
   };
 
+  const addLike = () => {
+    if (!liked) {
+      axios
+        .post("/api/likes", {
+          post_id: props.testimonial.id,
+          user_id: "1",
+        })
+        .then(() => {
+          setLiked(true);
+          props.rerender();
+        });
+    } else {
+      axios
+        .delete(`/api/likes/${props.testimonial.id}`, {
+          params: { user_id: "1" },
+        })
+        .then(() => {
+          setLiked(false);
+          props.rerender();
+        });
+    }
+  };
+
+  const likesByPost = props.likes.filter(
+    (like) => like.post_id === props.testimonial.id
+  );
+
   return (
     <div>
       <article key={props.testimonial.id}>
@@ -38,22 +68,38 @@ const TestimonialsListItem = (props) => {
         <p> {props.testimonial.content}</p>
         <footer>
           <button onClick={clickToReply}>Reply</button>
+          {likesByPost.length > 0 && <div>Likes:{likesByPost.length}</div>}
+          {!liked ? (
+            <button onClick={addLike}> Like </button>
+          ) : (
+            <button onClick={addLike}> Unlike </button>
+          )}
           <div>
             {repliesByTestimonialId.length > 0 && (
               <button onClick={clickToShowReplies}>
-                {" "}
-                {repliesByTestimonialId.length} replies{" "}
+                {!showReplies ? (
+                  <span>{repliesByTestimonialId.length} replies</span>
+                ) : (
+                  <span>Hide replies</span>
+                )}{" "}
               </button>
             )}
           </div>
         </footer>
       </article>
-      {showFormToReply && <Form symptom_id={parseInt(params.id)} rerender={props.rerender} reply_to={props.testimonial.id}/>}
+      {showFormToReply && (
+        <Form
+          symptom_id={parseInt(params.id)}
+          rerender={props.rerender}
+          setShowFormToReply={setShowFormToReply}
+          reply_to={props.testimonial.id}
+        />
+      )}
       {showReplies &&
         repliesByTestimonialId.map((reply) => (
           <Reply key={reply.id} reply={reply} />
         ))}
-    </div>  
+    </div>
   );
 };
 export default TestimonialsListItem;
