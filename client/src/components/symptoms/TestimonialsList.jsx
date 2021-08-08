@@ -5,14 +5,19 @@ import Form from "./Form";
 const TestimonialsList = (props) => {
   const testimonials = [... props.testimonials].reverse();
   const params = useParams();
-  const testimonialsBySymptom = testimonials.filter((testimonial) => testimonial.symptom_id === parseInt(params.id))
+  const testimonialsBySymptom = testimonials.filter((testimonial) => testimonial.symptom_id === parseInt(params.id));
+  const originalPosts = testimonialsBySymptom.filter((testimonial) => !testimonial.reply_to);
+  const replies = testimonialsBySymptom.filter((testimonial) => testimonial.reply_to);
+
+  console.log(replies, 'this is replies');
+
   return (
     <div>
       <div>
         <Form symptom_id={parseInt(params.id)} rerender={props.rerender}/>
       </div>
-      {testimonialsBySymptom.map((testimonial) => (
-        <TestimonialsListItem key={testimonial.id} testimonial={testimonial} />
+      {originalPosts.map((testimonial) => (
+        <TestimonialsListItem key={testimonial.id} testimonial={testimonial} replies={replies} rerender={props.rerender}/>
       ))}
     </div>
   );
