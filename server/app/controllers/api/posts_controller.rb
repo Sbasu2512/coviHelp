@@ -9,7 +9,6 @@ class Api::PostsController < ApplicationController
     @post.save!
     puts @post.inspect
     
-    
   end
 
   private
@@ -18,7 +17,8 @@ class Api::PostsController < ApplicationController
     params.permit(
       :user_id,
       :symptom_id,
-      :content
+      :content,
+      :reply_to
     )
   end
 

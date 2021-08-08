@@ -20,6 +20,7 @@ const Form = (props) => {
         symptom_id: props.symptom_id,
         user_id: "1",
         content: text,
+        reply_to: props.reply_to
       })
       .then(() => {
         
