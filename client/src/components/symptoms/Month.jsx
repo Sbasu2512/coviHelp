@@ -51,12 +51,9 @@ const Month = (props) => {
   const symptomsBySurvey = symptoms.filter((symptom) =>
     surveysByMonth.find((survey) => survey.symptom_id === symptom.id)
   );
-  console.log(symptomsBySurvey, "symptoms by survey");
-  console.log(surveys);
 
   return (
     <div>
-      <ul>
         {symptomsBySurvey.length > 0 ? (
           symptomsBySurvey.map((symptom) => (
             <SymptomListItem
@@ -69,7 +66,6 @@ const Month = (props) => {
         ) : (
           <h2>No symptoms found within that period</h2>
         )}
-      </ul>
     </div>
   );
 };

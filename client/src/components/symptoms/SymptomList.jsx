@@ -8,7 +8,7 @@ const SymptomList = (props) => {
   return (
     <div>
       <h2>Symptoms List</h2>
-        <Table hover>
+        <Table hover borderless>
           <thead>
             <tr>
               <th>Name of the symptom</th>

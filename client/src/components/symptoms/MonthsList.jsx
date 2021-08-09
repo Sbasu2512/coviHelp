@@ -6,6 +6,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import SymptomListItem from "./SymptomListItem";
+import { Table } from "react-bootstrap";
 
 const MonthsList = (props) => {
   const now = new Date();
@@ -58,41 +59,49 @@ const MonthsList = (props) => {
 
   const months = props.months;
   return (
-    
-      <div>
-        {months.map((month) => {
-          const surveysByMonth = getSurveysByMonth(surveys, month.id);
-          const symptomsBySurvey = symptoms.filter((symptom) =>
-            surveysByMonth.find((survey) => survey.symptom_id === symptom.id)
-          );
-          return (
-            <VerticalTimeline key={month.id}>
-              <VerticalTimelineElement key={month.id} date={month.name}>
-                <div>
+    <div>
+      {months.map((month) => {
+        const surveysByMonth = getSurveysByMonth(surveys, month.id);
+        const symptomsBySurvey = symptoms.filter((symptom) =>
+          surveysByMonth.find((survey) => survey.symptom_id === symptom.id)
+        );
+        return (
+          <VerticalTimeline key={month.id}>
+            <VerticalTimelineElement key={month.id} date={month.name}>
+              <div>
+                <Table hover borderless>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
                   {symptomsBySurvey.length > 0 ? (
                     symptomsBySurvey.map((symptom) => (
-                      <div>
-                        <ul>
-                          <SymptomListItem
-                            surveys={surveysByMonth}
-                            id={symptom.id}
-                            key={symptom.id + Math.random()}
-                            name={symptom.name}
-                          />
-                        </ul>
-                      </div>
+                      <SymptomListItem
+                        surveys={surveysByMonth}
+                        id={symptom.id}
+                        key={symptom.id + Math.random()}
+                        name={symptom.name}
+                      />
                     ))
                   ) : (
-                    <h2>No symptoms reported for that period</h2>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h2>No symptoms reported for that period</h2>
+                        </td>
+                      </tr>
+                    </tbody>
                   )}
-                </div>
-              </VerticalTimelineElement>
-            </VerticalTimeline>
-          );
-        })}
-      </div>
-
-  
+                </Table>
+              </div>
+            </VerticalTimelineElement>
+          </VerticalTimeline>
+        );
+      })}
+    </div>
   );
 };
 export default MonthsList;

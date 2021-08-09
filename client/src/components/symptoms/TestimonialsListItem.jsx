@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 import Button from "react-bootstrap/esm/Button";
 
+
 const TestimonialsListItem = (props) => {
   const params = useParams();
   const repliesByTestimonialId = props.replies.filter(
@@ -14,8 +15,6 @@ const TestimonialsListItem = (props) => {
   const [showFormToReply, setShowFormToReply] = useState(false);
   const [liked, setLiked] = useState(false);
 
-  
- 
 
   const clickToShowReplies = (e) => {
     if (!showReplies) {
