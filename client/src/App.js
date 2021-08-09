@@ -14,19 +14,24 @@ function App() {
   return (
     <div className="App">
         <Router>
-          <section className="sidebar">
-            <h1>CoviHelp</h1>
-            <hr className="sidebar__separator sidebar--centered" />
-            <span>Logged as <strong>user123</strong></span>
-            <hr className="sidebar__separator sidebar--centered" />
-            <nav className="sidebar__menu">
-              <Navigation />
-            </nav>
-          </section>
-          <Switch>
-            <Route path="/symptoms" component={Symptoms} />
-            <Route path="/" component={Home} />
-          </Switch>
+          <main>
+            <aside className="sidebar">
+              <h1>CoviHelp</h1>
+              <hr className="sidebar__separator sidebar--centered" />
+              <span>Logged as <strong>user123</strong></span>
+              <hr className="sidebar__separator sidebar--centered" />
+              <nav className="sidebar__menu">
+                <Navigation />
+              </nav>
+            </aside>
+            <section className="home">
+              <Switch>
+                <Route path="/symptoms" component={Symptoms} />
+                <Route path="/" component={Home} />
+              </Switch>
+            </section>
+          </main>
+
         </Router>
 
 
