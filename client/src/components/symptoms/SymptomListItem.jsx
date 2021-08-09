@@ -2,6 +2,10 @@ import React from "react";
 import Symptom from "./Symptom";
 import Home from "./Home";
 import Form from "./Form";
+import Table from "react-bootstrap/esm/Table";
+import Button from "react-bootstrap/esm/Button";
+import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -20,27 +24,23 @@ const SymptomListItem = (props) => {
     }
     return result;
   };
-  
+
   const numberOfReported = getNumberOfReported(props.surveys);
   return (
-    <div>
-      <li key={props.id}>
-        <table>
-          <tbody>
-          <tr>
-            <td>{props.name} </td>
-            <td>(Reported by {numberOfReported} {numberOfReported === 1 ? 'user' : "users"})</td>
-            <td>
-              <Link to={`/symptoms/all/${props.id}`}>
-                <button> Discuss </button>
-              </Link>
-            </td>
-          </tr>
-
-          </tbody>
-        </table>
-      </li>
-    </div>
+    <tbody>
+      <tr>
+        <td>{props.name} </td>
+        <td>
+          (Reported by {numberOfReported}{" "}
+          {numberOfReported === 1 ? "user" : "users"})
+        </td>
+        <td>
+          <Link to={`/symptoms/all/${props.id}`}>
+            <Button variant="outline-info"> Discuss </Button>
+          </Link>
+        </td>
+      </tr>
+    </tbody>
   );
 };
 export default SymptomListItem;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-
+import Button from 'react-bootstrap/Button';
 
 
 const Form = (props) => {
@@ -64,7 +63,7 @@ const Form = (props) => {
           <textarea type="text" name="name" value={text} onChange={onChange} />
         </label>
         <section>
-          <button>Submit</button>
+        <Button type='submit' variant="secondary">Submit</Button>
         </section>
       </form>
 

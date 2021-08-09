@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Form from "./Form";
 import { useParams } from "react-router";
 import axios from "axios";
+import Button from "react-bootstrap/esm/Button";
 
 const TestimonialsListItem = (props) => {
   const params = useParams();
@@ -67,7 +68,7 @@ const TestimonialsListItem = (props) => {
         </header>
         <p> {props.testimonial.content}</p>
         <footer>
-          <button onClick={clickToReply}>Reply</button>
+          <Button onClick={clickToReply} variant="secondary"  >Reply</Button>
           {likesByPost.length > 0 && <div>Likes:{likesByPost.length}</div>}
           {!liked ? (
             <button onClick={addLike}> Like </button>
@@ -76,13 +77,13 @@ const TestimonialsListItem = (props) => {
           )}
           <div>
             {repliesByTestimonialId.length > 0 && (
-              <button onClick={clickToShowReplies}>
+              <Button  variant="outline-secondary" onClick={clickToShowReplies}>
                 {!showReplies ? (
                   <span>{repliesByTestimonialId.length} replies</span>
                 ) : (
                   <span>Hide replies</span>
                 )}{" "}
-              </button>
+              </Button>
             )}
           </div>
         </footer>
