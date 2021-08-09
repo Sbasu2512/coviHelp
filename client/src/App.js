@@ -15,7 +15,6 @@ function App() {
       <Router>
         <Navigation />
         <Switch>
-
           <Route path="/symptoms" component={Symptoms} />
           <Route path="/" component={Home} />
         </Switch>

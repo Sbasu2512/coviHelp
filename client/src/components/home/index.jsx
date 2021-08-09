@@ -3,6 +3,8 @@ import LoadingMap from "./LoadingMap/index"
 import Dashboard from "./dashboard/index"
 import GeneralInfo from "./general-info/index"
 
+import StateProvider from '../../providers/StateProvider';
+
 import axios from 'axios'
 import { useEffect, useState } from "react";
 
@@ -31,9 +33,11 @@ const Home = () => {
 
   return (
     <div>
-      <Dashboard />
-      {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
-      <GeneralInfo />
+      <StateProvider>
+        <Dashboard />
+        {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
+        <GeneralInfo />
+      </StateProvider>
     </div>
   );
 };
