@@ -33,11 +33,11 @@ const Home = () => {
 
   return (
     <div>
-      <StateProvider>
+      {/* <StateProvider> */}
         <Dashboard />
         {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
         <GeneralInfo />
-      </StateProvider>
+      {/* </StateProvider> */}
     </div>
   );
 };
