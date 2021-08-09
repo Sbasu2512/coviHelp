@@ -9,11 +9,12 @@ import Survey from "./Survey";
 import axios from "axios";
 
 const months = [
-  { id: 1, name: `1 month` },
-  { id: 2, name: `2 months` },
-  { id: 3, name: `Three months` },
-  { id: 4, name: `4 - 6 months` },
-  { id: 5, name: `Over 6 months` },
+  { id: 1, name: `1 month after diagnosis` },
+  { id: 2, name: `2 months after diagnosis` },
+  { id: 3, name: `3 months after diagnosis` },
+  { id: 4, name: `4 - 6 months after diagnosis` },
+  { id: 5, name: `Over 6 months after diagnosis` },
+  {id: 6, name: `Over one year after diagnosis`}
 ];
 
 const Symptoms = () => {
@@ -70,7 +71,7 @@ const Symptoms = () => {
           <Month symptoms={state.symptoms} surveys={state.surveys} />
         </Route>
         <Route path="/symptoms/months">
-          <MonthsList months={months} />
+          <MonthsList months={months} symptoms={state.symptoms} surveys={state.surveys}/>
         </Route>
         <Route path="/symptoms/survey">
           <Survey symptoms={state.symptoms} rerender={rerender}/>
