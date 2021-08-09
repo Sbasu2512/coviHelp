@@ -61,30 +61,30 @@ const TestimonialsListItem = (props) => {
 
   return (
     <div>
-      <article key={props.testimonial.id}>
-        <header>
+      <article key={props.testimonial.id} className='tweet'>
+        <header >
           <div>{props.testimonial.user_name}</div>
+          <div> <img className="avatar" src={props.testimonial.photo}/> </div>
         </header>
-        <p> {props.testimonial.content}</p>
+        <p className='text-area-tweet'> {props.testimonial.content}</p>
         <footer>
           <Button onClick={clickToReply} variant="secondary"  >Reply</Button>
-          {likesByPost.length > 0 && <div>Likes:{likesByPost.length}</div>}
-          {!liked ? (
-            <button onClick={addLike}> Like </button>
-          ) : (
-            <button onClick={addLike}> Unlike </button>
-          )}
-          <div>
             {repliesByTestimonialId.length > 0 && (
               <Button  variant="outline-secondary" onClick={clickToShowReplies}>
                 {!showReplies ? (
                   <span>{repliesByTestimonialId.length} replies</span>
-                ) : (
-                  <span>Hide replies</span>
-                )}{" "}
+                  ) : (
+                    <span>Hide replies</span>
+                    )}{" "}
               </Button>
             )}
-          </div>
+            {likesByPost.length > 0 && <div>Likes:{likesByPost.length}</div>}
+            {!liked ? (
+              <button onClick={addLike}> Like </button>
+            ) : (
+              <button onClick={addLike}> Unlike </button>
+            )}
+        
         </footer>
       </article>
       {showFormToReply && (

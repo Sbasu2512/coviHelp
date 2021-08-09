@@ -8,6 +8,7 @@ import TestimonialsList from "./TestimonialsList";
 import Survey from "./Survey";
 import axios from "axios";
 import { Nav } from "react-bootstrap";
+import './styling/Symptoms.scss'
 
 const months = [
   { id: 1, name: `1 month after diagnosis` },
