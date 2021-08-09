@@ -1,11 +1,11 @@
-import './style.css'
+import { Card } from 'react-bootstrap';
 
 const GeneralInfo = () => {
   return (
+
     <aside className='general-info'>
-      <h2>General Info</h2>
       <section>
-        <h3>How do you get infected?</h3>
+        <h4>How do you get infected?</h4>
           <ul>
             <li>The main route of transmission I respiratory droplets and close contact with infected people</li>
             <li>When you sneeze or cough, you produce droplets of fluid from your nose and mouth</li>
@@ -16,7 +16,7 @@ const GeneralInfo = () => {
           </ul>
       </section>
       <section>
-        <h3>I think I'm infected, now what?</h3>
+        <h4>I think I'm infected, now what?</h4>
         <ul>
           <li>Inform institution/health organization in your country via the emergency number, which will tell you what to do next.</li>
           <li>Self-isolation at home has been recommended for people diagnosed with COVID-19 and those who suspect they have been infected.</li>
@@ -27,6 +27,7 @@ const GeneralInfo = () => {
         <p>Source: Centers for Disease Control and Prevention</p>
       </section>
     </aside>
+
   )
 };
 

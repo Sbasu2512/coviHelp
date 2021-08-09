@@ -3,6 +3,8 @@ import LoadingMap from "./LoadingMap/index"
 import Dashboard from "./dashboard/index"
 import GeneralInfo from "./general-info/index"
 
+import {Card} from "react-bootstrap"
+
 import StateProvider from '../../providers/StateProvider';
 
 import axios from 'axios'
@@ -34,9 +36,29 @@ const Home = () => {
   return (
     <div>
       {/* <StateProvider> */}
-        <Dashboard />
-        {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
-        <GeneralInfo />
+        <Card>
+          <Card.Header><h2>Statistics Dashboard</h2></Card.Header>
+          <Card.Body>
+            <Dashboard />
+          </Card.Body>
+        </Card>
+
+        <Card>
+          <Card.Header><h2>Helpful Information</h2></Card.Header>
+          <Card.Body>
+          {
+          
+          testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
+          
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header><h2>General Information</h2></Card.Header>
+          <Card.Body>
+            <GeneralInfo />
+          </Card.Body>
+        </Card>
+
       {/* </StateProvider> */}
     </div>
   );

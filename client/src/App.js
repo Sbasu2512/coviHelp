@@ -1,5 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+import { Container } from 'react-bootstrap';
 
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import Navigation from './components/Navigation';
@@ -10,7 +12,7 @@ import Home from './components/home/index.jsx'
 
 function App() {
   return (
-    <div className="App">
+    <Container className="App">
       <h1>CoviHelp</h1>
       <Router>
         <Navigation />
@@ -19,7 +21,7 @@ function App() {
           <Route path="/" component={Home} />
         </Switch>
       </Router>
-    </div>
+    </Container>
   );
 }
 
