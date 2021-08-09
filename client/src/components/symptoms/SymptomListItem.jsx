@@ -37,7 +37,6 @@ const SymptomListItem = (props) => {
             </td>
           </tr>
 
-
           </tbody>
         </table>
       </li>
