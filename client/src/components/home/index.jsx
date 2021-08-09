@@ -1,3 +1,5 @@
+import './style.css'
+
 import TestingLocations from "./testing-locations/index"
 import LoadingMap from "./LoadingMap/index"
 import Dashboard from "./dashboard/index"
@@ -43,13 +45,10 @@ const Home = () => {
           </Card.Body>
         </Card>
 
-        <Card>
+        <Card >
           <Card.Header><h2>Helpful Information</h2></Card.Header>
-          <Card.Body>
-          {
-          
-          testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
-          
+          <Card.Body className='home__map'>
+            {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
           </Card.Body>
         </Card>
         <Card>
