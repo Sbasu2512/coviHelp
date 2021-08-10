@@ -1,5 +1,4 @@
 import SymptomListItem from "./SymptomListItem";
-import ListGroup from "react-bootstrap/esm/ListGroup";
 import Table from "react-bootstrap/esm/Table";
 
 const SymptomList = (props) => {
@@ -7,7 +6,6 @@ const SymptomList = (props) => {
 
   return (
     <div>
-      <h2>Symptoms List</h2>
         <Table hover borderless>
           <thead>
             <tr>

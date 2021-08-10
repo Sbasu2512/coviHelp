@@ -13,9 +13,7 @@
 .userData{
 
   
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  text-align: none;
 
 }
 
@@ -28,6 +26,14 @@
 
 }
 
+.userName{
+  color: #F2DEBF;
+}
+
+
 .positive{
+  font-size: smaller;
   color: lightcoral;
 }
+
+

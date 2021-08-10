@@ -3,7 +3,6 @@ import './style.css'
 import TestingLocations from "./testing-locations/index"
 import LoadingMap from "./LoadingMap/index"
 import Dashboard from "./dashboard/index"
-import GeneralInfo from "./general-info/index"
 
 import {Card} from "react-bootstrap"
 
@@ -36,30 +35,38 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
+    <main>
       {/* <StateProvider> */}
         <Card>
-          <Card.Header><h2>Statistics Dashboard</h2></Card.Header>
+          <Card.Header><h2>Alerts, messages, latest updates...</h2></Card.Header>
           <Card.Body>
-            <Dashboard />
+            Loading...
+          </Card.Body>
+        </Card>
+
+        <Card>
+          <Card.Header><h2>Dashboard</h2></Card.Header>
+          <Card.Body>
+            Loading...
           </Card.Body>
         </Card>
 
         <Card >
-          <Card.Header><h2>Helpful Information</h2></Card.Header>
+          <Card.Header><h2>Around you</h2></Card.Header>
           <Card.Body className='home__map'>
             {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
           </Card.Body>
         </Card>
+
         <Card>
-          <Card.Header><h2>General Information</h2></Card.Header>
+          <Card.Header><h2>General information, external links...</h2></Card.Header>
           <Card.Body>
-            <GeneralInfo />
+            Loading...
           </Card.Body>
         </Card>
 
       {/* </StateProvider> */}
-    </div>
+    </main>
   );
 };
 
