@@ -7,7 +7,7 @@ import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom"
 import Navigation from './components/sidebar/Navigation';
 import Symptoms from './components/main/symptoms/Symptoms';
 import Home from './components/main/index.jsx'
-import User from './components/user/index.jsx'
+import User from './components/sidebar/user/index.jsx'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome } from '@fortawesome/free-solid-svg-icons'
