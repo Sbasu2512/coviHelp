@@ -1,12 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
-import { Container } from 'react-bootstrap';
+import logo from './images/coronavirus.png'
 
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import Navigation from './components/Navigation';
 import Symptoms from './components/symptoms/Symptoms';
 import Home from './components/home/index.jsx'
+import User from './components/user/index.jsx'
 
 
 
@@ -16,9 +17,10 @@ function App() {
         <Router>
           <main>
             <aside className="sidebar">
+              <img src={logo} alt='logo'/>
               <h1>CoviHelp</h1>
               <hr className="sidebar__separator sidebar--centered" />
-              <span>Logged as <strong>user123</strong></span>
+              <User />
               <hr className="sidebar__separator sidebar--centered" />
               <nav className="sidebar__menu">
                 <Navigation />

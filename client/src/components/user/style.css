@@ -1,0 +1,17 @@
+.userContainer{
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+.userPic {
+  border-radius: 50%;
+  margin-left: 1em;
+  margin-right: 1.5em;
+
+}
+
+.positive{
+  color: lightcoral;
+}
