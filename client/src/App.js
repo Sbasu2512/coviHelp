@@ -18,7 +18,6 @@ function App() {
   return (
     <div className="App">
         <Router>
-          <main>
             <aside className="sidebar">
               <img src={logo} alt='logo' className='logo'/>
               <h1><Link to="/" className="homeLink"><FontAwesomeIcon icon={faHome} /></Link> CoviHelp</h1>
@@ -29,14 +28,10 @@ function App() {
                 <Navigation />
               </nav>
             </aside>
-            <section className="home">
-              <Switch>
+            <Switch>
                 <Route path="/symptoms" component={Symptoms} />
                 <Route path="/" component={Home} />
-              </Switch>
-            </section>
-          </main>
-
+            </Switch>
         </Router>
 
 
