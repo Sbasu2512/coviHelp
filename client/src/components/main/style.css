@@ -2,4 +2,8 @@
 
 .home__map {
   padding: 0;
+  min-height: 50vh;
+
+  background-image: url("./home/testing-locations/img/syringe.png");
+
 }

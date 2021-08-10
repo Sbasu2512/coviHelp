@@ -11,6 +11,10 @@ import StateProvider from '../../providers/StateProvider';
 import axios from 'axios'
 import { useEffect, useState } from "react";
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+
+
 const Home = () => {
   
   const [testingLocations, setTestingLocations] = useState(null)
@@ -54,7 +58,14 @@ const Home = () => {
         <Card >
           <Card.Header><h2>Around you</h2></Card.Header>
           <Card.Body className='home__map'>
-            {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : <LoadingMap />}
+            {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : 
+              <Loader
+                type="Rings"
+                color="lightcoral"
+                height={500}
+                width={500}
+              />
+            }
           </Card.Body>
         </Card>
 
