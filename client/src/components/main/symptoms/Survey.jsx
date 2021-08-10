@@ -35,7 +35,7 @@ const Survey = (props) => {
     }
     for (let symp of checkedSymptoms) {
       axios
-        .post("/api/surveys", {
+        .post("http://localhost:3000/api/surveys", {
           symptom_id: symp,
           user_id: "1",
           time_diagnozed: startDate,

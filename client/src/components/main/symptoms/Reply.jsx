@@ -4,7 +4,7 @@ import axios from "axios";
 const Reply = (props) => {
 
   const clickToDelete = (e) => {
-    axios.delete(`/api/posts/${props.reply.id}`)
+    axios.delete(`http://localhost:3000/api/posts/${props.reply.id}`)
     .then(() => {
       props.rerender();
     });

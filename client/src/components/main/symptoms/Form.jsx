@@ -32,7 +32,7 @@ const Form = (props) => {
       return;
     }
     axios
-      .post("/api/posts", {
+      .post("http://localhost:3000/api/posts", {
         symptom_id: props.symptom_id,
         user_id: "1",
         content: text,

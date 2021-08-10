@@ -16,7 +16,7 @@ const TestimonialsListItem = (props) => {
 
   const clickToDelete = (e) => {
     console.log(e)
-    axios.delete(`/api/posts/${props.testimonial.id}`)
+    axios.delete(`http://localhost:3000/api/posts/${props.testimonial.id}`)
     .then(() => {
       props.rerender();
     });
@@ -42,7 +42,7 @@ const TestimonialsListItem = (props) => {
   const addLike = () => {
     if (!liked) {
       axios
-        .post("/api/likes", {
+        .post("http://localhost:3000/api/likes", {
           post_id: props.testimonial.id,
           user_id: "1",
         })
@@ -52,7 +52,7 @@ const TestimonialsListItem = (props) => {
         });
     } else {
       axios
-        .delete(`/api/likes/${props.testimonial.id}`, {
+        .delete(`http://localhost:3000/api/likes/${props.testimonial.id}`, {
           params: { user_id: "1" },
         })
         .then(() => {
