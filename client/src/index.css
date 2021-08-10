@@ -18,6 +18,9 @@ code {
 }
 
 body {
+  
+
+
   margin: 0;
   background-color: #F6F4F1;
   font-family: "Baloo Bhaina", sans-serif;
@@ -29,4 +32,6 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+
 }

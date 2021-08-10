@@ -8,6 +8,5 @@ const Symptom = () => {
     </div>
   )
 
-    
 }
 export default Symptom;

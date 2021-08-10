@@ -11,11 +11,11 @@ User.destroy_all
 
 
 
-User.create(first_name: 'John', user_name: '@jdoe', last_name: 'Doe',  email: 'john@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://unsplash.com/photos/2901RQjU0ZQ')
-User.create(first_name: 'Richie', last_name: 'Doe', user_name: '@rdoe', email: 'richie@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://unsplash.com/photos/2901RQjU0ZQ')
-User.create(first_name: 'David', last_name: 'Doe',  user_name: '@ddoe', email: 'david@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://unsplash.com/photos/2901RQjU0ZQ')
-User.create(first_name: 'Tico', last_name: 'Doe', user_name: '@tdoe', email: 'richie@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://unsplash.com/photos/2901RQjU0ZQ')
-User.create(first_name: 'Frank', last_name: 'Doe',  user_name: '@fdoe', email: 'david@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://unsplash.com/photos/2901RQjU0ZQ')
+User.create(first_name: 'Labber', user_name: '@Labber', last_name: 'Labber',  email: 'john@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://cdn.pixabay.com/photo/2021/07/25/07/50/man-6491148__480.png')
+User.create(first_name: 'Richie', last_name: 'Doe', user_name: '@akula', email: 'richie@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://cdn.pixabay.com/photo/2016/03/31/20/27/avatar-1295773__480.png')
+User.create(first_name: 'David', last_name: 'Doe',  user_name: '@vorobey', email: 'david@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://cdn.pixabay.com/photo/2016/08/20/05/36/avatar-1606914__480.png')
+User.create(first_name: 'Tico', last_name: 'Doe', user_name: '@lev', email: 'richie@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://cdn.pixabay.com/photo/2016/03/31/19/58/avatar-1295429__480.png')
+User.create(first_name: 'Frank', last_name: 'Doe',  user_name: '@mangust', email: 'david@mail.ru', password: 'password', phone: 647111, city: 'Toronto', province: 'Ontario', photo: 'https://cdn.pixabay.com/photo/2021/07/03/10/54/naruto-6383640__480.jpg')
 
 
 puts "Creating Symptoms!"
@@ -47,7 +47,12 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 2, symptom_id: 1 , content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 3, symptom_id: 1 , content:  "Proin efficitur pharetra sodales. 
+Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
+gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
+ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
+dolor eget semper maximus. Fusce consequat massa eu congue")
+Post.create!(user_id: 1, symptom_id: 2, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
@@ -57,12 +62,7 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 2, symptom_id: 2, content:  "Proin efficitur pharetra sodales. 
-Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
-gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
-ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
-dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 2, symptom_id: 2 , content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 3, symptom_id: 2 , content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
@@ -72,37 +72,27 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 3, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 2, symptom_id: 3, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 1, symptom_id: 3, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 4, symptom_id: 3, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 3, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 4, symptom_id: 3, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 1, symptom_id: 3, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 5, symptom_id: 3, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 2, symptom_id: 4, content:  "Proin efficitur pharetra sodales. 
-Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
-gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
-ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
-dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 2, symptom_id: 4, content:  "Proin efficitur pharetra sodales. 
-Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
-gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
-ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
-dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create(user_id: 2, symptom_id: 4, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 1, symptom_id: 4, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
@@ -112,7 +102,12 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 2, symptom_id: 5, content:  "Proin efficitur pharetra sodales. 
+Post.create(user_id: 3, symptom_id: 4, content:  "Proin efficitur pharetra sodales. 
+Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
+gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
+ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
+dolor eget semper maximus. Fusce consequat massa eu congue")
+Post.create!(user_id: 4, symptom_id: 4, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
@@ -122,22 +117,17 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
+Post.create!(user_id: 2, symptom_id: 5, content:  "Proin efficitur pharetra sodales. 
+Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
+gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
+ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
+dolor eget semper maximus. Fusce consequat massa eu congue")
 Post.create!(user_id: 3, symptom_id: 6, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 1, symptom_id: 6, content:  "Proin efficitur pharetra sodales. 
-Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
-gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
-ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
-dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 7, content:  "Proin efficitur pharetra sodales. 
-Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
-gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
-ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
-dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create(user_id: 3, symptom_id: 7, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 4, symptom_id: 6, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
@@ -147,12 +137,22 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
+Post.create(user_id: 2, symptom_id: 7, content:  "Proin efficitur pharetra sodales. 
+Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
+gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
+ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
+dolor eget semper maximus. Fusce consequat massa eu congue")
 Post.create!(user_id: 3, symptom_id: 7, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 8, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 4, symptom_id: 7, content:  "Proin efficitur pharetra sodales. 
+Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
+gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
+ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
+dolor eget semper maximus. Fusce consequat massa eu congue")
+Post.create!(user_id: 2, symptom_id: 8, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
@@ -162,27 +162,17 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 1, symptom_id: 8, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 4, symptom_id: 8, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 8, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 5, symptom_id: 8, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 9, content:  "Proin efficitur pharetra sodales. 
-Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
-gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
-ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
-dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 9, content:  "Proin efficitur pharetra sodales. 
-Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
-gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
-ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
-dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 1, symptom_id: 9, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 2, symptom_id: 9, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
@@ -192,7 +182,17 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 10, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 4, symptom_id: 9, content:  "Proin efficitur pharetra sodales. 
+Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
+gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
+ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
+dolor eget semper maximus. Fusce consequat massa eu congue")
+Post.create!(user_id: 5, symptom_id: 9, content:  "Proin efficitur pharetra sodales. 
+Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
+gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
+ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
+dolor eget semper maximus. Fusce consequat massa eu congue")
+Post.create!(user_id: 2, symptom_id: 10, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
@@ -202,12 +202,12 @@ Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 1, symptom_id: 10, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 4, symptom_id: 10, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 
 dolor eget semper maximus. Fusce consequat massa eu congue")
-Post.create!(user_id: 3, symptom_id: 10, content:  "Proin efficitur pharetra sodales. 
+Post.create!(user_id: 5, symptom_id: 10, content:  "Proin efficitur pharetra sodales. 
 Nam vitae semper nibh. Phasellus pulvinar, ipsum nec tempus auctor, nunc risus 
 gravida velit, sed gravida tellus dui in ante. Donec eu nunc vel ex consequat 
 ultrices. Etiam non convallis justo. Phasellus in enim ex. Aliquam tristique 

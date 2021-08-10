@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Form from "./Form";
 import { useParams } from "react-router";
 import axios from "axios";
+import Button from "react-bootstrap/esm/Button";
 
 const TestimonialsListItem = (props) => {
   const params = useParams();
@@ -13,8 +14,14 @@ const TestimonialsListItem = (props) => {
   const [showFormToReply, setShowFormToReply] = useState(false);
   const [liked, setLiked] = useState(false);
 
-  
- 
+  const clickToDelete = (e) => {
+    console.log(e)
+    axios.delete(`/api/posts/${props.testimonial.id}`)
+    .then(() => {
+      props.rerender();
+    });
+  }
+
 
   const clickToShowReplies = (e) => {
     if (!showReplies) {
@@ -54,37 +61,60 @@ const TestimonialsListItem = (props) => {
         });
     }
   };
-
   const likesByPost = props.likes.filter(
     (like) => like.post_id === props.testimonial.id
   );
-
   return (
     <div>
-      <article key={props.testimonial.id}>
+      <article key={props.testimonial.id} className="tweet">
         <header>
           <div>{props.testimonial.user_name}</div>
-        </header>
-        <p> {props.testimonial.content}</p>
-        <footer>
-          <button onClick={clickToReply}>Reply</button>
-          {likesByPost.length > 0 && <div>Likes:{likesByPost.length}</div>}
-          {!liked ? (
-            <button onClick={addLike}> Like </button>
-          ) : (
-            <button onClick={addLike}> Unlike </button>
-          )}
           <div>
-            {repliesByTestimonialId.length > 0 && (
-              <button onClick={clickToShowReplies}>
-                {!showReplies ? (
-                  <span>{repliesByTestimonialId.length} replies</span>
-                ) : (
-                  <span>Hide replies</span>
-                )}{" "}
-              </button>
-            )}
+            {" "}
+            <img className="avatar" src={props.testimonial.photo} />{" "}
           </div>
+        </header>
+        <p className="text-area-tweet"> {props.testimonial.content}</p>
+        <br />
+        <footer>
+          <div className='reply-and-delete'>
+            <div>
+              <Button onClick={clickToReply} variant="secondary">
+                Reply
+              </Button>
+            </div>
+            <div>
+              {props.testimonial.user_id === 1 && <Button onClick={clickToDelete} variant='danger'>Delete</Button>}
+            </div>
+          </div>
+          {repliesByTestimonialId.length > 0 && (
+            <Button variant="outline-secondary" onClick={clickToShowReplies}>
+              {!showReplies ? (
+                <span>{repliesByTestimonialId.length} replies</span>
+              ) : (
+                <span>Hide replies</span>
+              )}{" "}
+            </Button>
+          )}
+          {!liked ? (
+            <div className="likes">
+              <button className="like-button-unclicked" onClick={addLike}>
+                <i class="far fa-heart"></i>
+              </button>
+              <div className="likes-number">
+                {likesByPost.length > 0 && likesByPost.length}
+              </div>
+            </div>
+          ) : (
+            <div className="likes">
+              <button className="like-button-clicked" onClick={addLike}>
+                <i className="far fa-heart clicked"></i>
+              </button>
+              <div className="likes-number">
+                {likesByPost.length > 0 && likesByPost.length}
+              </div>
+            </div>
+          )}
         </footer>
       </article>
       {showFormToReply && (
@@ -97,7 +127,7 @@ const TestimonialsListItem = (props) => {
       )}
       {showReplies &&
         repliesByTestimonialId.map((reply) => (
-          <Reply key={reply.id} reply={reply} />
+          <Reply rerender={props.rerender} key={reply.id} reply={reply} clickToDelete={clickToDelete}/>
         ))}
     </div>
   );
