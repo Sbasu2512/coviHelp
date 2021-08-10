@@ -4,9 +4,9 @@ import './App.scss';
 import logo from './images/coronavirus.png'
 
 import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom"
-import Navigation from './components/Navigation';
-import Symptoms from './components/symptoms/Symptoms';
-import Home from './components/home/index.jsx'
+import Navigation from './components/sidebar/Navigation';
+import Symptoms from './components/main/symptoms/Symptoms';
+import Home from './components/main/index.jsx'
 import User from './components/user/index.jsx'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"

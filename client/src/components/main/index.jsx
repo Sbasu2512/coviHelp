@@ -1,8 +1,8 @@
 import './style.css'
 
-import TestingLocations from "./testing-locations/index"
-import LoadingMap from "./LoadingMap/index"
-import Dashboard from "./dashboard/index"
+import TestingLocations from "./home/testing-locations/index"
+import LoadingMap from "./home/LoadingMap/index"
+import Dashboard from "./home/dashboard/index"
 
 import {Card} from "react-bootstrap"
 
