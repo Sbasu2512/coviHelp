@@ -14,6 +14,15 @@ const TestimonialsListItem = (props) => {
   const [showFormToReply, setShowFormToReply] = useState(false);
   const [liked, setLiked] = useState(false);
 
+  const clickToDelete = (e) => {
+    console.log(e)
+    axios.delete(`/api/posts/${props.testimonial.id}`)
+    .then(() => {
+      props.rerender();
+    });
+  }
+
+
   const clickToShowReplies = (e) => {
     if (!showReplies) {
       setShowReplies(true);
@@ -68,9 +77,16 @@ const TestimonialsListItem = (props) => {
         <p className="text-area-tweet"> {props.testimonial.content}</p>
         <br />
         <footer>
-          <Button onClick={clickToReply} variant="secondary">
-            Reply
-          </Button>
+          <div className='reply-and-delete'>
+            <div>
+              <Button onClick={clickToReply} variant="secondary">
+                Reply
+              </Button>
+            </div>
+            <div>
+              {props.testimonial.user_id === 1 && <Button onClick={clickToDelete} variant='danger'>Delete</Button>}
+            </div>
+          </div>
           {repliesByTestimonialId.length > 0 && (
             <Button variant="outline-secondary" onClick={clickToShowReplies}>
               {!showReplies ? (
@@ -80,7 +96,6 @@ const TestimonialsListItem = (props) => {
               )}{" "}
             </Button>
           )}
-
           {!liked ? (
             <div className="likes">
               <button className="like-button-unclicked" onClick={addLike}>
@@ -93,7 +108,7 @@ const TestimonialsListItem = (props) => {
           ) : (
             <div className="likes">
               <button className="like-button-clicked" onClick={addLike}>
-                <i class="far fa-heart clicked"></i>
+                <i className="far fa-heart clicked"></i>
               </button>
               <div className="likes-number">
                 {likesByPost.length > 0 && likesByPost.length}
@@ -112,7 +127,7 @@ const TestimonialsListItem = (props) => {
       )}
       {showReplies &&
         repliesByTestimonialId.map((reply) => (
-          <Reply key={reply.id} reply={reply} />
+          <Reply rerender={props.rerender} key={reply.id} reply={reply} clickToDelete={clickToDelete}/>
         ))}
     </div>
   );
