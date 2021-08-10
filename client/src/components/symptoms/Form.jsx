@@ -56,7 +56,6 @@ const Form = (props) => {
       )}
       <form onSubmit={onSubmit}>
         <label>
-          Share your story:
           <textarea type="text" name="name" value={text} onChange={onChange} />
         </label>
         <section>
