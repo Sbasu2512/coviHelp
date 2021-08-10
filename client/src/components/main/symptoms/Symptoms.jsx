@@ -49,22 +49,14 @@ const Symptoms = () => {
 
   return (
     <div>
-      {/*       
-      <div>
-        <Link to="/symptoms/months"> Symptoms by period after diagonsis </Link>
-      </div>
-      <div>
-        <Link to="/symptoms/all"> All symptoms </Link>
-      </div>
-      <div>
-        <Link to="/symptoms/survey">Survey</Link>
-      </div> */}
+     
       <Switch>
         <Route path="/symptoms/all/:id">
           <TestimonialsList
             testimonials={state.testimonials}
             likes={state.likes}
             rerender={rerender}
+            symptoms={state.symptoms}
           />
         </Route>
         <Route path="/symptoms/all">

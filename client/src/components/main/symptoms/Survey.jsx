@@ -5,6 +5,9 @@ import { InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Button, Alert } from "react-bootstrap";
+import { Table } from "react-bootstrap";
+import { FaRegSquare } from "react-icons/fa";
+import { FaRegCheckSquare } from "react-icons/fa";
 
 const Survey = (props) => {
   const symptoms = props.symptoms;
@@ -12,19 +15,20 @@ const Survey = (props) => {
   const [checkedSymptoms, setCheckedSymptoms] = useState([]);
   const [error, setError] = useState(false);
   const [thankYouMessage, setThankyouMessage] = useState(false);
-  // const handleOnChangeDate = (e) => {
-  //   setDateDiagnozed(e.target.value);
-  // };
+  const [clicked, setClicked] = useState("");
+
   const handleOnChange = (e) => {
-    if (e.target.checked) {
-      setCheckedSymptoms((prev) => [...prev, parseInt(e.target.value)]);
+    const val = parseInt(e.currentTarget.value);
+    if (!checkedSymptoms.includes(val)) {
+      setCheckedSymptoms((prev) => [...prev, val]);
+      setClicked(val);
     }
-    if (!e.target.checked) {
-      const newArray = checkedSymptoms.filter(
-        (symptom) => symptom !== parseInt(e.target.value)
-      );
+    if (checkedSymptoms.includes(val)) {
+      const newArray = checkedSymptoms.filter((symptom) => symptom !== val);
       setCheckedSymptoms(newArray);
     }
+   
+
   };
 
   const clickHandler = (e) => {
@@ -81,7 +85,39 @@ const Survey = (props) => {
                   <span className="clue"> (Check all that apply)</span>
                 </label>
               </div>
-              {symptoms.map((symptom) => {
+              <div>
+                <Table borderless>
+                  <thead>
+                    <tr>
+                      <th>The table header</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {symptoms.map((symptom) => {
+                      return (
+                        <tr key={symptom.id}>
+                          <td>{symptom.name}</td>
+                          <td>
+                            <button
+                              type="button"
+                              value={symptom.id}
+                              className="like-button-unclicked"
+                              onClick={handleOnChange}
+                            >
+                              {!checkedSymptoms.includes(symptom.id) ? (
+                                <FaRegSquare />
+                              ) : (
+                                <FaRegCheckSquare />
+                              )}
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </Table>
+              </div>
+              {/* {symptoms.map((symptom) => {
                 return (
                   <div key={symptom.id}>
                     <InputGroup className="mb-3">
@@ -95,17 +131,9 @@ const Survey = (props) => {
                         {symptom.name}{" "}
                       </InputGroup.Text>
                     </InputGroup>
-
-                    {/* <input
-                        name="symptom_id"
-                        value={symptom.id}
-                        type="checkbox"
-                        onChange={handleOnChange}
-                        className="input-checkbox"
-                      /> */}
                   </div>
                 );
-              })}
+              })} */}
             </div>
             {error && (
               <div>
