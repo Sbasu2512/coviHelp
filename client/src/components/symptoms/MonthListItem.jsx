@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
+
 
 const MonthListItem = (props) => {
   return (

@@ -1,8 +1,7 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SymptomList from "./SymptomList";
 import MonthsList from "./MonthsList";
 import { Route, Link, Switch } from "react-router-dom";
-import Symptom from "./Symptom";
 import Month from "./Month";
 import TestimonialsList from "./TestimonialsList";
 import Survey from "./Survey";
@@ -50,24 +49,6 @@ const Symptoms = () => {
 
   return (
     <div>
-      <h1>Discuss symptoms</h1>
-      <Nav variant="tabs" defaultActiveKey="/home">
-        <Nav.Item>
-          <Link to="/symptoms/months">
-            <Nav.Link href="/home">Symptoms timeline</Nav.Link>
-          </Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link to="/symptoms/all">
-            <Nav.Link href="/link-1">All symptoms</Nav.Link>
-          </Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link to="/symptoms/survey">
-            <Nav.Link href="/link-2">Survey</Nav.Link>
-          </Link>
-        </Nav.Item>
-      </Nav>
       {/*       
       <div>
         <Link to="/symptoms/months"> Symptoms by period after diagonsis </Link>

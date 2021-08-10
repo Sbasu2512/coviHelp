@@ -82,9 +82,17 @@ main {
 
 }
 
-.home {
-
-  flex-grow: 3;
-
+.logo {
+  width: 50%;
 }
 
+.homeLink {
+  color: white;
+}
+.homeLink:hover {
+  color: #F2DEBF;
+}
+
+.logo {
+  align-self: center;
+}

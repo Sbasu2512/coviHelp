@@ -1,0 +1,20 @@
+nav {
+
+}
+
+nav div {
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: x-large;
+  margin-bottom: 0;
+}
+
+.navButton{
+  color: white;
+  text-decoration:none;
+}
+.navButton:hover{
+  background-color: #F2DEBF;
+  color: #186AA8;
+}

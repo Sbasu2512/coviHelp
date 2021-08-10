@@ -1,17 +1,9 @@
 import React from "react";
-import Symptom from "./Symptom";
-import Home from "./Home";
-import Form from "./Form";
-import Table from "react-bootstrap/esm/Table";
+
 import Button from "react-bootstrap/esm/Button";
-import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
 
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  useHistory,
+  Link
 } from "react-router-dom";
 
 const SymptomListItem = (props) => {

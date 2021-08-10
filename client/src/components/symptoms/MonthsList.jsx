@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import MonthListItem from "./MonthListItem";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
