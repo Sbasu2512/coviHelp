@@ -1,9 +1,10 @@
 .App {
   
 
-  flex: 1 1;
+
   
   text-align: center;
+
   display: flex;
   flex-direction: column;
 
@@ -62,14 +63,10 @@ main {
   display: flex;
   flex-direction: column;
   min-width: 18rem;
+  min-height: 100vh;;
  
 
   padding: 1em 0;
-
-  flex-grow: 0.3;
-
-
-
 
 
   &--centered {
@@ -89,6 +86,5 @@ main {
 
   flex-grow: 3;
 
-  
 }
 
