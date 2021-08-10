@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 const ProvinceList = (props) => {
   let data = props.data ;
@@ -6,20 +8,26 @@ const ProvinceList = (props) => {
   const province = data.summary.map((province) => {
     const  dailyChange = province.active_cases_change > 0 ? `(+ ${province.active_cases_change})` : `(- ${province.active_cases_change})`
     return (
-      <ul>
-        <h3> {province.province} </h3>
-        <p> Cases Today: {province.cases}</p>
-        <p> Deaths Today: {province.deaths}</p>
-        <p> Recovered Today: {province.recovered}</p>
-        <p> Total Active Cases: {province.active_cases} {dailyChange} </p>
-        <p> Total Deaths: {province.cumulative_deaths}  </p>
-        <p> Total Recovered: {province.cumulative_recovered}  </p>
-        <p> Total Vaccines Administered: {province.cumulative_dvaccine}  </p>
-        <p> Total cases: {province.cumulative_cases}  </p>
-        <p> Last Updated on {province.date}</p>
-      </ul> 
+      <div>
+        <Card style={{ width: '18rem' }}>
+        <Card.Body>
+          <Card.Title>{province.province}</Card.Title>
+          <Card.Text> Cases Today: {province.cases} </Card.Text>
+              <Card.Text> Deaths Today: {province.deaths}  </Card.Text>
+              <Card.Text> Recovered Today: {province.recovered}  </Card.Text>
+              <Card.Text> Total Active Cases: {province.active_cases} {dailyChange}  </Card.Text>
+              <Card.Text> Total Deaths: {province.cumulative_deaths}   </Card.Text>
+              <Card.Text> Total Recovered: {province.cumulative_recovered}   </Card.Text>
+              <Card.Text> Total Vaccines Administered: {province.cumulative_dvaccine}   </Card.Text>
+              <Card.Text> Total cases: {province.cumulative_cases}   </Card.Text>
+              <Card.Text> Last Updated on {province.date} </Card.Text>
+        </Card.Body>
+</Card>
+      </div>
     )
   })
+
+
 
 //   active_cases: 3380,
 // active_cases_change: 661,

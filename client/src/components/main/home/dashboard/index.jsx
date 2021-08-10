@@ -37,7 +37,7 @@ const Dashboard = (props) => {
   return (
     <div>
       <section>
-        Canadian Provinces
+        <h2 className='page-title'></h2>
       </section>
       <section>
         <ProvinceList data={state}  />
@@ -49,3 +49,4 @@ const Dashboard = (props) => {
 
 
 export default Dashboard;
+
