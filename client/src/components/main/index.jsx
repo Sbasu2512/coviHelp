@@ -48,6 +48,7 @@ const Home = () => {
           <Card.Header><h2>Dashboard</h2></Card.Header>
           <Card.Body>
             Loading...
+            <Dashboard />
           </Card.Body>
         </Card>
 

@@ -28,10 +28,10 @@ const Symptoms = () => {
   });
   useEffect(() => {
     Promise.all([
-      axios.get("/api/symptoms"),
-      axios.get("/api/posts"),
-      axios.get("/api/surveys"),
-      axios.get("/api/likes"),
+      axios.get("http://localhost:3000/api/symptoms"),
+      axios.get("http://localhost:3000/api/posts"),
+      axios.get("http://localhost:3000/api/surveys"),
+      axios.get("http://localhost:3000/api/likes"),
     ]).then((all) => {
       setState((prev) => ({
         ...prev,
