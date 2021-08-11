@@ -48,14 +48,6 @@ const Home = () => {
           </Card.Body>
         </Card>
 
-        <Card>
-          <Card.Header><h2>Dashboard</h2></Card.Header>
-          <Card.Body>
-            Loading...
-            <Dashboard />
-          </Card.Body>
-        </Card>
-
         <Card >
           <Card.Header><h2>Around you</h2></Card.Header>
           <Card.Body className='home__map'>
@@ -67,6 +59,13 @@ const Home = () => {
                 width={500}
               />
             }
+          </Card.Body>
+        </Card>
+
+        <Card>
+          <Card.Header><h2>Dashboard</h2></Card.Header>
+          <Card.Body>
+            <Dashboard />
           </Card.Body>
         </Card>
 
