@@ -5,6 +5,8 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import SymptomListItem from "./SymptomListItem";
 import { Table } from "react-bootstrap";
+import { FaCalendarAlt } from "react-icons/fa";
+
 
 const MonthsList = (props) => {
   const now = new Date();
@@ -58,6 +60,9 @@ const MonthsList = (props) => {
   const months = props.months;
   return (
     <div>
+       <div>
+        <h2>Symptoms timeline</h2>
+      </div>
       {months.map((month) => {
         const surveysByMonth = getSurveysByMonth(surveys, month.id);
         const symptomsBySurvey = symptoms.filter((symptom) =>
@@ -65,8 +70,12 @@ const MonthsList = (props) => {
         );
         return (
           <VerticalTimeline key={month.id}>
-            <VerticalTimelineElement key={month.id} date={month.name}>
-              <div>
+            <VerticalTimelineElement
+              key={month.id}
+              date={month.name}
+              icon={<FaCalendarAlt/>}
+            >
+              <div className='timeline-component'>
                 <Table hover borderless>
                   <thead>
                     <tr>

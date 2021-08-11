@@ -2,9 +2,7 @@ import React from "react";
 
 import Button from "react-bootstrap/esm/Button";
 
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SymptomListItem = (props) => {
   const getNumberOfReported = (surveys) => {
@@ -23,8 +21,12 @@ const SymptomListItem = (props) => {
       <tr>
         <td>{props.name} </td>
         <td>
-          (Reported by {numberOfReported}{" "}
-          {numberOfReported === 1 ? "user" : "users"})
+          <div className="patient-and-number">
+            <span>
+              <i className="icon-patient"></i>
+            </span>
+            <span className='patient-number'>{numberOfReported}</span>
+          </div>
         </td>
         <td>
           <Link to={`/symptoms/all/${props.id}`}>

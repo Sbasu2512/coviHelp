@@ -45,24 +45,21 @@ article.tweet footer {
   margin: auto;
   padding-bottom: 1em;
 }
-.likes-footer  {
+.likes-footer {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: end
+  justify-content: end;
 }
 .reply-and-delete {
   display: flex;
-
 }
-
 
 .likes {
   display: flex;
-
 }
 .likes-number {
   font-size: 30px;
-  color: rgb(79, 87, 86)
+  color: rgb(79, 87, 86);
 }
 
 .name-and-avatar {
@@ -142,6 +139,7 @@ textarea {
   text-decoration: none;
   display: inline-block;
   font-size: 32px;
+  // pointer-events: none;
 }
 
 .like-button-clicked {
@@ -152,9 +150,8 @@ textarea {
   text-decoration: none;
   display: inline-block;
   font-size: 32px;
+  // pointer-events: none;
 }
-
-
 
 .text-area-tweet {
   overflow-wrap: break-word;
@@ -176,4 +173,31 @@ textarea {
   align-self: flex-start;
   border: solid;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.timeline-component {
+  margin-top: 70px;
+}
+
+
+td {
+  text-align: center;
+}
+
+.icon-patient {
+  background: url('../docs/hospitalisation.png');
+  height: 2rem;
+  width: 2rem;
+  display: block;
+  background-size: contain;
+}
+
+.patient-and-number {
+  display: flex;
+
+}
+.patient-number {
+  margin-left: 15px;
+  font-size: 21px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
