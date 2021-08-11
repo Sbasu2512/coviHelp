@@ -222,6 +222,18 @@ Survey.create(time_diagnozed: '2020-12-04', user_id: 2, symptom_id: 2)
 Survey.create(time_diagnozed: '2021-02-02', user_id: 1, symptom_id: 3)
 Survey.create(time_diagnozed: '2021-03-11', user_id: 3, symptom_id: 4)
 
+
+puts "Creating vaccination locations!"
+VaccinationLocation.destroy_all
+path = File.join Rails.root, 'db', 'seed_data', 'vacc-loc.json'
+puts ".....Loading from #{path}"
+file = File.read(path)
+puts ".....Parsing data"
+locations = JSON.parse file
+puts ".....Feeding db"
+locations.each {|location| VaccinationLocation.create location}
+puts "-> Created #{locations.length()} vaccination locations"
+
 puts "Creating testing locations!"
 TestingLocation.destroy_all
 path = File.join Rails.root, 'db', 'seed_data', 'locations.json'
@@ -231,7 +243,10 @@ puts ".....Parsing data"
 locations = JSON.parse file
 puts ".....Feeding db"
 locations.each {|location| TestingLocation.create location}
-puts "-> Created #{locations.length()} locations"
+puts "-> Created #{locations.length()} testing locations"
+
+
+
 
 puts "Creating likes!"
 Like.destroy_all

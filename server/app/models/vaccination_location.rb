@@ -1,0 +1,2 @@
+class VaccinationLocation < ApplicationRecord
+end
