@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup'
 
 const ProvinceList = (props) => {
   let data = props.data ;
@@ -7,6 +8,7 @@ const ProvinceList = (props) => {
       const  dailyChange = province.active_cases_change > 0 ? `(+ ${province.active_cases_change})` : `(- ${province.active_cases_change})`
       return (
         <div key={i}>
+          <CardGroup>
           <Card style={{ width: '18rem' }} bg={'dark'} text={'white'}>
           <Card.Body >
             <Card.Title>{province.province}</Card.Title>
@@ -18,9 +20,13 @@ const ProvinceList = (props) => {
                 <Card.Text> Total Recovered: {province.cumulative_recovered}   </Card.Text>
                 <Card.Text> Total Vaccines Administered: {province.cumulative_dvaccine}   </Card.Text>
                 <Card.Text> Total cases: {province.cumulative_cases}   </Card.Text>
-                <Card.Text> Last Updated on {province.date} </Card.Text>
+                <Card.Footer>
+      <small className="text-muted">Last Updated on {province.date}</small>
+    </Card.Footer>
+                
           </Card.Body>
-  </Card>
+          </Card>
+          </CardGroup>
         </div>
       )
     })) : (
