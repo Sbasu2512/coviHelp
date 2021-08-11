@@ -7,7 +7,7 @@ const Dashboard = (props) => {
     summary: []
   });
 
-  const summaryUrl = `https://api.opencovid.ca/summary`
+  const summaryUrl = `https://api.opencovid.ca/summary` ;
 
   useEffect(() => {
       axios.get(summaryUrl)
