@@ -27,7 +27,7 @@ web-vitals 1.0.1
 
 ![Survey Page](https://github.com/Sbasu2512/coviHelp/blob/main/shots/Screen%20Shot%202021-08-11%20at%204.29.56%20PM.png)
 
-![Social Network][logo](https://github.com/Sbasu2512/coviHelp/blob/main/shots/Screen%20Shot%202021-08-11%20at%204.30.22%20PM.png)
+![Social Network](https://github.com/Sbasu2512/coviHelp/blob/main/shots/Screen%20Shot%202021-08-11%20at%204.30.22%20PM.png)
 
 
 
