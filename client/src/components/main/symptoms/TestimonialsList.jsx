@@ -11,8 +11,8 @@ const TestimonialsList = (props) => {
   const symptom = props.symptoms.find((symptom) => symptom.id === parseInt(params.id))
   
   return (
-    <div id='testimonial-container'>
-      <div>
+    <div className='symptoms-body'>
+      <div className='symptoms-heading'>
       {symptom  && <h3>{symptom.name}</h3>}  
       </div>
       <div className='form-testimonial'>
