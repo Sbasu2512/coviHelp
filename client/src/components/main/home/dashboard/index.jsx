@@ -1,16 +1,20 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import ProvinceList from './ProvinceList'
+import ProvinceList from './ProvinceList';
+import WorldList from './WorldList' ;
 
 const Dashboard = (props) => {
   const [state, setState] = useState({
-    summary: []
+    summary: [],
+    worldData: []
   });
 
-  const summaryUrl = `https://api.opencovid.ca/summary` ;
+
+  const CanadaUrl = `https://api.opencovid.ca/summary` ;
+  const worldUrl = `https://corona-api.com/countries`;
 
   useEffect(() => {
-      axios.get(summaryUrl)
+      axios.get(CanadaUrl)
       .then((res) => {
         setState((prev) => ({
           ...prev,
@@ -22,6 +26,17 @@ const Dashboard = (props) => {
     
     },[])
 
+    useEffect(()=> {
+      axios.get(worldUrl)
+      .then((res) => {
+        setState((prev) => ({
+          ...prev,
+          worldData: res.data
+        }));
+      })
+      .catch((err) => console.log(err))
+    }, []);
+
   return (
     <div>
       <section>
@@ -29,6 +44,12 @@ const Dashboard = (props) => {
       </section>
       <section>
         <ProvinceList data={state.summary}  />
+      </section>
+      <section>
+        <h2>World Data</h2>
+      </section>
+      <section>
+        <WorldList data={state.worldData}  />
       </section>
     </div>
   )
