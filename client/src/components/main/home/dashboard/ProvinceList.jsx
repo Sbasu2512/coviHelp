@@ -7,8 +7,8 @@ const ProvinceList = (props) => {
       const  dailyChange = province.active_cases_change > 0 ? `(+ ${province.active_cases_change})` : `(- ${province.active_cases_change})`
       return (
         <div key={i}>
-          <Card style={{ width: '18rem' }}>
-          <Card.Body>
+          <Card style={{ width: '18rem' }} bg={'dark'} text={'white'}>
+          <Card.Body >
             <Card.Title>{province.province}</Card.Title>
             <Card.Text> Cases Today: {province.cases} </Card.Text>
                 <Card.Text> Deaths Today: {province.deaths}  </Card.Text>

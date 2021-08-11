@@ -8,7 +8,7 @@ const WorldList = (props) => {
 //(Math.round(num * 100) / 100).toFixed(2)
       return (
         <div key={i}>
-          <Card style={{ width: '18rem' }}>
+          <Card style={{ width: '18rem' }} className="mb-2">
           <Card.Body>
             <Card.Title>{countries.name}</Card.Title>
            <Card.Text> Population: {countries.population} </Card.Text>
