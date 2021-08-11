@@ -21,6 +21,11 @@ React, NodeJS, Ruby, Rails & postgreSQL
 * Create React App
 * web-vitals 1.0.1
 
+# Further Developments
+
+* We will be adding a login feature in the near feature.
+* We will be adding a text reminder for registered user asking for update after 2 weeks of being diagnosed.
+
 # Screenshots
 
 ![Home Page](https://github.com/Sbasu2512/coviHelp/blob/main/shots/Screen%20Shot%202021-08-11%20at%204.29.08%20PM.png)
