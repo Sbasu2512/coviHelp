@@ -41,7 +41,7 @@
     "not dead",
     "not op_mini all"
   ],
-  "proxy": "https://api.covid19tracker.ca",
+ 
   "devDependencies": {
     "http-proxy-middleware": "^2.0.1"
   }

@@ -5,7 +5,7 @@ import ProvinceList from './ProvinceList'
 const Dashboard = (props) => {
 
   const [state, setState] = useState({
-    summary: [],
+    summary: []
   });
 
   // let today = new Date();
@@ -16,31 +16,32 @@ const Dashboard = (props) => {
   // today = dd + '-' + mm + '-' + yyyy;
 
   const summaryUrl = `https://api.opencovid.ca/summary`
-  // const dailyData = `https://api.opencovid.ca/summary?date=today`
 
   useEffect(() => {
     
-      Promise.all([
-        axios.get(summaryUrl),
-      ])
-      .then((all) => {
+    
+      axios.get(summaryUrl)
+      .then((res) => {
+        console.log('*********', res);
         setState((prev) => ({
           ...prev,
-          summary: all[0].data.summary,
+          summary: res.data.summary,
         }));
+        
       })
-      .catch((err) => console.log(err.message))
+      .catch((err) => console.log('@@@@@@@@',err.message))
     
     },[])
     
+    console.log('!!!!!!!!!!!!', state);
 
   return (
     <div>
       <section>
-        <h2 className='page-title'></h2>
+        <h2>Province wise Data</h2>
       </section>
       <section>
-        <ProvinceList data={state}  />
+        <ProvinceList data={state.summary}  />
       </section>
     </div>
   )
