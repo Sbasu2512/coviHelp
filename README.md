@@ -19,7 +19,7 @@ web-vitals 1.0.1
 
 # Screenshots
 
-![Home Page][https://github.com/Sbasu2512/coviHelp/blob/main/shots/Screen%20Shot%202021-08-11%20at%204.29.08%20PM.png]
+![https://github.com/Sbasu2512/coviHelp/blob/main/shots/Screen%20Shot%202021-08-11%20at%204.29.08%20PM.png][Home Page]
 ![alt text][logo]
 ![alt text][logo]
 ![alt text][logo]
