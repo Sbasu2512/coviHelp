@@ -3,8 +3,6 @@ import Card from 'react-bootstrap/Card';
 
 const ProvinceList = (props) => {
   let data = props.data ;
-  console.log('~~~~~~~~~~~',data);
-  
       const province =  data? (data.map((province, i) => {
       const  dailyChange = province.active_cases_change > 0 ? `(+ ${province.active_cases_change})` : `(- ${province.active_cases_change})`
       return (
@@ -30,9 +28,6 @@ const ProvinceList = (props) => {
     Loading...
   </Card.Body>
     )
-  
-    
-
 
   return (
     <div>
