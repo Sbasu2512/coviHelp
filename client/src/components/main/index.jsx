@@ -1,7 +1,6 @@
 import './style.css'
 
-import TestingLocations from "./home/testing-locations/index"
-import LoadingMap from "./home/LoadingMap/index"
+import Locations from "./home/locations/index"
 import Dashboard from "./home/dashboard/index"
 
 import {Card} from "react-bootstrap"
@@ -17,25 +16,31 @@ import Loader from "react-loader-spinner";
 
 const Home = () => {
   
-  const [testingLocations, setTestingLocations] = useState(null)
+  const [testing, setTesting] = useState(null)
+  const [vaccination, setVaccination] = useState(null)
   const [userCoordinates, setUserCoordinates] = useState(null)
 
   useEffect (() => {
-    axios.get('http://localhost:3000/api/testing_locations')
-      .then(res => {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          setUserCoordinates([position.coords.latitude, position.coords.longitude])
-          setTestingLocations(res.data.filter(location => 
-            location.active !== null &&
-            location.active !== 'No' &&
-            location.latitude !== null &&
-            location.longitude !== null &&
-            location.latitude !== 0 &&
-            location.longitude !== 0
-          ));
-        });
+    Promise.all([
+      axios.get('/api/testing_locations'),
+      axios.get('/api/vaccination_locations'),
+    ]).then(([ testLocations, vacLocations ]) => {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        setUserCoordinates([position.coords.latitude, position.coords.longitude])
+
+        setTesting(testLocations.data.filter(location => 
+          location.active !== null &&
+          location.active !== 'No' &&
+          location.latitude !== null &&
+          location.longitude !== null &&
+          location.latitude !== 0 &&
+          location.longitude !== 0
+        ));
+
+        setVaccination(vacLocations.data);
+
       });
-    
+    })
   }, [])
 
   return (
@@ -51,7 +56,7 @@ const Home = () => {
         <Card >
           <Card.Header><h2>Around you</h2></Card.Header>
           <Card.Body className='home__map'>
-            {testingLocations ? <TestingLocations userCoordinates={userCoordinates} locations={testingLocations}/> : 
+            {testing ? <Locations userCoordinates={userCoordinates} locations={{testing, vaccination}}/> : 
               <Loader
                 type="Rings"
                 color="lightcoral"

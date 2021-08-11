@@ -36,9 +36,10 @@ const testingIcon = new L.icon({
 
 function Map(props) {
 
-  const { userCoordinates, testingLocations } = props.data;
-  testingLocations.forEach(location => {
-  });
+  const { userCoordinates, testingLocations, vaccinationLocations} = props.data;
+        console.log('vaccination', vaccinationLocations);
+        console.log('testing', testingLocations);
+        console.log('user Coord', userCoordinates)
   return (
     <div className="map">
       <MapContainer center={userCoordinates} zoom={12} scrollWheelZoom={false}>
@@ -48,7 +49,7 @@ function Map(props) {
         />
         <Marker position={userCoordinates} icon={userIcon} ><Popup>You are here!</Popup></Marker>
         {
-          testingLocations.map(location =>
+          testingLocations && testingLocations.map(location =>
             <Marker
               position={[location.latitude, location.longitude]}
               icon={testingIcon}
@@ -56,6 +57,19 @@ function Map(props) {
             >
               <Popup>
                 {location.location_name}
+              </Popup>
+            </Marker>
+          )
+        }
+        {
+            vaccinationLocations && vaccinationLocations.map(location =>
+            <Marker
+              position={[location.latitude, location.longitude]}
+              icon={vaccineIcon}
+              key={`location${location.id}`}
+            >
+              <Popup>
+                Vaccine available here!
               </Popup>
             </Marker>
           )

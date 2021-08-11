@@ -12,14 +12,15 @@ import Map from './Map'
 
 
 
-export default function TestingLocation(props) {
+export default function Locations(props) {
   
   return (
     <div>
         <Map 
             data={
               {
-                testingLocations : props.locations,
+                testingLocations : props.locations.testing,
+                vaccinationLocations : props.locations.vaccination,
                 userCoordinates : props.userCoordinates
               }
             }
