@@ -37,9 +37,7 @@ const testingIcon = new L.icon({
 function Map(props) {
 
   const { userCoordinates, testingLocations, vaccinationLocations} = props.data;
-        console.log('vaccination', vaccinationLocations);
-        console.log('testing', testingLocations);
-        console.log('user Coord', userCoordinates)
+
   return (
     <div className="map">
       <MapContainer center={userCoordinates} zoom={12} scrollWheelZoom={false}>
