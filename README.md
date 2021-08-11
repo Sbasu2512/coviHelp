@@ -2,6 +2,10 @@
 
 CoviHelp created by Sayantan Basu, Ali Salim and Alexey Oispov using React, NodeJS, Ruby with Rails and postgreSQL. It shows users resources about covid and let people share their own covid journey.
 
+# Tech-stack
+
+React, NodeJS, Ruby, Rails & postgreSQL
+
 # Dependencies
 
 * fortawesome 1.2.36
