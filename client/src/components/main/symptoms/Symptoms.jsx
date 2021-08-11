@@ -49,7 +49,6 @@ const Symptoms = () => {
 
   return (
     <div>
-     
       <Switch>
         <Route path="/symptoms/all/:id">
           <TestimonialsList

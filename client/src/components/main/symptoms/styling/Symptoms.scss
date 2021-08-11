@@ -5,6 +5,11 @@
   padding-right: 2em;
 }
 
+.symptoms-heading {
+  margin-bottom: 3em;
+  text-align: start;
+}
+
 article {
   border: 2px solid  #186AA8;
   margin-bottom: 2em;
@@ -20,6 +25,18 @@ article {
 }
 
 article.tweet header {
+  height: 90%;
+  width: 90%;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-image: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.reply-header {
   height: 90%;
   width: 90%;
   margin-bottom: 1em;
@@ -52,6 +69,12 @@ article.tweet footer {
 }
 .reply-and-delete {
   display: flex;
+  gap: 30px;
+}
+
+.form-testimonial {
+  display: flex;
+
 }
 
 .likes {
@@ -112,13 +135,23 @@ article:hover {
   padding-top: 3em;
 }
 
+
+.symptoms-body {
+  margin-top: 5em;
+  margin-left: 6em
+}
+
 input[type="text"],
 textarea {
+  display: flex;
   border: 0;
-  border-bottom: 2em solid #1890ff;
   padding: 5px 10px;
   outline: none;
   background-color: #f4f1ec;
+}
+
+label {
+  font-weight: bold;
 }
 
 textarea {
@@ -153,6 +186,12 @@ textarea {
   // pointer-events: none;
 }
 
+.user-name {
+  margin-left: 50px;
+  margin-top: 1.3em;
+  font-size: 1.5em;
+}
+
 .text-area-tweet {
   overflow-wrap: break-word;
   text-align: justify;
@@ -181,7 +220,7 @@ textarea {
 
 
 td {
-  text-align: center;
+  text-align: left;
 }
 
 .icon-patient {
@@ -201,3 +240,4 @@ td {
   font-size: 21px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+

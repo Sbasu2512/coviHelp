@@ -13,11 +13,11 @@ class Api::PostsController < ApplicationController
 
   def destroy
     @post = Post.where(["id = ?", "#{params[:id]}"])
+    
     puts @post.inspect
     @post.destroy_all
   end
   
-
   private
 
   def post_params

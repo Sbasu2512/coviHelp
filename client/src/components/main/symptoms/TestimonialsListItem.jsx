@@ -15,13 +15,13 @@ const TestimonialsListItem = (props) => {
   const [liked, setLiked] = useState(false);
 
   const clickToDelete = (e) => {
-    console.log(e)
-    axios.delete(`http://localhost:3000/api/posts/${props.testimonial.id}`)
-    .then(() => {
-      props.rerender();
-    });
-  }
-
+    console.log(e);
+    axios
+      .delete(`http://localhost:3000/api/posts/${props.testimonial.id}`)
+      .then(() => {
+        props.rerender();
+      });
+  };
 
   const clickToShowReplies = (e) => {
     if (!showReplies) {
@@ -68,23 +68,26 @@ const TestimonialsListItem = (props) => {
     <div>
       <article key={props.testimonial.id} className="tweet">
         <header>
-          <div>{props.testimonial.user_name}</div>
+          <div className="user-name">{props.testimonial.user_name}</div>
           <div>
-            {" "}
-            <img className="avatar" src={props.testimonial.photo} />{" "}
+            <img className="avatar" src={props.testimonial.photo} />
           </div>
         </header>
         <p className="text-area-tweet"> {props.testimonial.content}</p>
         <br />
         <footer>
-          <div className='reply-and-delete'>
+          <div className="reply-and-delete">
             <div>
               <Button onClick={clickToReply} variant="secondary">
                 Reply
               </Button>
             </div>
             <div>
-              {props.testimonial.user_id === 1 && <Button onClick={clickToDelete} variant='danger'>Delete</Button>}
+              {props.testimonial.user_id === 1 && (
+                <Button onClick={clickToDelete} variant="danger">
+                  Delete
+                </Button>
+              )}
             </div>
           </div>
           {repliesByTestimonialId.length > 0 && (
@@ -99,7 +102,7 @@ const TestimonialsListItem = (props) => {
           {!liked ? (
             <div className="likes">
               <button className="like-button-unclicked" onClick={addLike}>
-                <i class="far fa-heart"></i>
+                <i className="far fa-heart"></i>
               </button>
               <div className="likes-number">
                 {likesByPost.length > 0 && likesByPost.length}
@@ -118,16 +121,27 @@ const TestimonialsListItem = (props) => {
         </footer>
       </article>
       {showFormToReply && (
-        <Form
-          symptom_id={parseInt(params.id)}
-          rerender={props.rerender}
-          setShowFormToReply={setShowFormToReply}
-          reply_to={props.testimonial.id}
-        />
+        <div className="form-testimonial">
+          <Form
+            symptom_id={parseInt(params.id)}
+            rerender={props.rerender}
+            setShowFormToReply={setShowFormToReply}
+            reply_to={props.testimonial.id}
+          />
+        </div>
       )}
       {showReplies &&
         repliesByTestimonialId.map((reply) => (
-          <Reply rerender={props.rerender} key={reply.id} reply={reply} clickToDelete={clickToDelete}/>
+          <Reply
+            // liked={liked}
+            // setLiked={setLiked}
+            // likesByPost={likesByPost}
+            rerender={props.rerender}
+            likes={props.likes}
+            key={reply.id}
+            reply={reply}
+            clickToDelete={clickToDelete}
+          />
         ))}
     </div>
   );

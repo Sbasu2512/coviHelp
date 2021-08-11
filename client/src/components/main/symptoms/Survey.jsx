@@ -27,8 +27,6 @@ const Survey = (props) => {
       const newArray = checkedSymptoms.filter((symptom) => symptom !== val);
       setCheckedSymptoms(newArray);
     }
-   
-
   };
 
   const clickHandler = (e) => {
@@ -53,13 +51,16 @@ const Survey = (props) => {
     console.log(checkedSymptoms, startDate);
   };
   return (
-    <div>
-      <InputGroup className="mb-3">
+    <div className="symptoms-body">
+      <div className='symptoms-heading'>
+        <h2>Symptoms timeline</h2>
+      </div>
+      <InputGroup className="mb-">
         {thankYouMessage && (
           <div>
             <Alert variant="success">
               <h2>Thank you for taking part in out survey!</h2>
-              <Link to="/symptoms/all">Go to the symptoms timeline </Link>
+              <Link to="/symptoms/months">Symptoms timeline </Link>
             </Alert>
           </div>
         )}
@@ -67,16 +68,13 @@ const Survey = (props) => {
         {!thankYouMessage && (
           <form onSubmit={clickHandler}>
             <div>
-              <InputGroup className="mb-3">
-                <label>
-                  Please select a date when you were diagnozed with COVID-19.
-                  <span className="clue"></span>
-                </label>
+              <label>Please select a date when you were diagnozed with COVID-19.</label>
+              <div className='datepicker'>
                 <DatePicker
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
                 />
-              </InputGroup>
+              </div>
             </div>
             <div>
               <div>
@@ -88,15 +86,12 @@ const Survey = (props) => {
               <div>
                 <Table borderless>
                   <thead>
-                    <tr>
-                      <th>The table header</th>
-                    </tr>
+                    <tr></tr>
                   </thead>
                   <tbody>
                     {symptoms.map((symptom) => {
                       return (
                         <tr key={symptom.id}>
-                          <td>{symptom.name}</td>
                           <td>
                             <button
                               type="button"
@@ -111,29 +106,13 @@ const Survey = (props) => {
                               )}
                             </button>
                           </td>
+                          <td>{symptom.name}</td>
                         </tr>
                       );
                     })}
                   </tbody>
                 </Table>
               </div>
-              {/* {symptoms.map((symptom) => {
-                return (
-                  <div key={symptom.id}>
-                    <InputGroup className="mb-3">
-                      <InputGroup.Checkbox
-                        name="symptom_id"
-                        value={symptom.id}
-                        type="checkbox"
-                        onChange={handleOnChange}
-                      />
-                      <InputGroup.Text id="basic-addon3">
-                        {symptom.name}{" "}
-                      </InputGroup.Text>
-                    </InputGroup>
-                  </div>
-                );
-              })} */}
             </div>
             {error && (
               <div>

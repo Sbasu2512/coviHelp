@@ -56,11 +56,10 @@ const MonthsList = (props) => {
       }
     });
   };
-
   const months = props.months;
   return (
-    <div>
-       <div>
+    <div className='symptoms-body'>
+       <div className='symptoms-heading'>
         <h2>Symptoms timeline</h2>
       </div>
       {months.map((month) => {

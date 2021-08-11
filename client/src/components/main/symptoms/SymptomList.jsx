@@ -5,8 +5,8 @@ const SymptomList = (props) => {
   const symptoms = props.symptoms;
 
   return (
-    <div>
-      <div>
+    <div className='symptoms-body'>
+      <div className='symptoms-heading'>
         <h2>All symptoms</h2>
       </div>
         <Table hover borderless>

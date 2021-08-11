@@ -13,9 +13,9 @@ const TestimonialsList = (props) => {
   return (
     <div id='testimonial-container'>
       <div>
-        <h3>{symptom.name}</h3>
+      {symptom  && <h3>{symptom.name}</h3>}  
       </div>
-      <div>
+      <div className='form-testimonial'>
         <Form symptom_id={parseInt(params.id)} rerender={props.rerender}/>
       </div>
       {originalPosts.map((testimonial) => (
