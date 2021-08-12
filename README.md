@@ -6,8 +6,7 @@
 
   React, NodeJS, Ruby, Rails & postgreSQL
 
-<<<<<<< HEAD
-=======
+
 # Dependencies
 
   * fortawesome 1.2.36
@@ -22,7 +21,6 @@
   * rack-cors 
   * Create React App
   * web-vitals 1.0.1
->>>>>>> e6ff98632d40207808ce01740bffe5bd66571bd4
 
 # Further Developments
 

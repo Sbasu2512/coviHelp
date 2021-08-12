@@ -1,12 +1,11 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup'
-
+import CardGroup from 'react-bootstrap/CardGroup';
 
 const ProvinceList = (props) => {
   let data = props.data ;
       const province =  data? (data.map((province, i) => {
-      const  dailyChange = province.active_cases_change > 0 ? `(+ ${province.active_cases_change})` : `(- ${province.active_cases_change})`
+      const  dailyChange = province.active_cases_change > 0 ? `(+ ${province.active_cases_change})` : `(- ${province.active_cases_change})`;
 
       return (
         <div key={i}>
