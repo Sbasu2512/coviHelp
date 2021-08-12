@@ -1,13 +1,17 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup'
+
 
 const ProvinceList = (props) => {
   let data = props.data ;
       const province =  data? (data.map((province, i) => {
       const  dailyChange = province.active_cases_change > 0 ? `(+ ${province.active_cases_change})` : `(- ${province.active_cases_change})`
+
       return (
         <div key={i}>
-          <Card style={{ width: '18rem' }} bg={'dark'} text={'white'}>
+          <CardGroup>
+          <Card style={{ width: '18rem' }} bg={'dark'} text={'white'} border="light">
           <Card.Body >
             <Card.Title>{province.province}</Card.Title>
             <Card.Text> Cases Today: {province.cases} </Card.Text>
@@ -20,7 +24,8 @@ const ProvinceList = (props) => {
                 <Card.Text> Total cases: {province.cumulative_cases}   </Card.Text>
                 <Card.Text> Last Updated on {province.date} </Card.Text>
           </Card.Body>
-  </Card>
+          </Card>
+          </CardGroup>
         </div>
       )
     })) : (
