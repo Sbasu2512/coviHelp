@@ -18,7 +18,7 @@ function App() {
         <Router>
             <aside className="sidebar">
               <img src={logo} alt='logo' className='logo'/>
-              <h1><Link to="/" className="homeLink"><FontAwesomeIcon icon={faHome} /></Link> CoviHelp</h1>
+              <h1><Link to="/" className="homeLink"><FontAwesomeIcon icon={faHome} /></Link> afterCovid</h1>
               <hr className="sidebar__separator sidebar--centered" /> 
               <User />
               <hr className="sidebar__separator sidebar--centered" />

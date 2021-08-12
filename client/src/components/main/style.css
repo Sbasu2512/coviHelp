@@ -1,9 +1,4 @@
-
-
 .home__map {
   padding: 0;
-  min-height: 50vh;
-
-  background-image: url("./home/locations/img/syringe.png");
-
+  min-height: 100vh;
 }

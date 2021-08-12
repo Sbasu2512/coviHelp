@@ -40,6 +40,11 @@ function Map(props) {
 
   return (
     <div className="map">
+      <div>
+        <img src={iconTesting} /> Testing location
+        <span> </span>
+        <img src={iconVaccine} /> Vaccination site
+      </div>
       <MapContainer center={userCoordinates} zoom={12} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

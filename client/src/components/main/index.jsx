@@ -45,23 +45,15 @@ const Home = () => {
 
   return (
     <main>
-      {/* <StateProvider> */}
-        <Card>
-          <Card.Header><h2>Alerts, messages, latest updates...</h2></Card.Header>
-          <Card.Body>
-            Loading...
-          </Card.Body>
-        </Card>
-
         <Card >
           <Card.Header><h2>Around you</h2></Card.Header>
           <Card.Body className='home__map'>
             {testing ? <Locations userCoordinates={userCoordinates} locations={{testing, vaccination}}/> : 
-              <Loader
+              <Loader className='loader'
                 type="Rings"
-                color="lightcoral"
-                height={500}
-                width={500}
+                color="#186AA8"
+                height={900}
+                width={900}
               />
             }
           </Card.Body>
@@ -71,13 +63,6 @@ const Home = () => {
           <Card.Header><h2>Dashboard</h2></Card.Header>
           <Card.Body>
             <Dashboard />
-          </Card.Body>
-        </Card>
-
-        <Card>
-          <Card.Header><h2>General information, external links...</h2></Card.Header>
-          <Card.Body>
-            Loading...
           </Card.Body>
         </Card>
 
