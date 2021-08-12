@@ -23,6 +23,7 @@ const User = (props) => {
         <div className='userData' style={{textAlign: 'left'}}>
           <div><strong className='userName'>{state.user.name.first} {state.user.name.last}</strong></div>
           <div>Ottawa, Ontario</div>
+          <div><strong className='positive'>Positive🤒</strong></div>
         </div>
       }
     </div>
