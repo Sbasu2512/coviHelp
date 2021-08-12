@@ -6,15 +6,14 @@ const SymptomList = (props) => {
 
   return (
     <div className='symptoms-body'>
+      {console.log(symptoms)}
       <div className='symptoms-heading'>
         <h2>All symptoms</h2>
       </div>
         <Table hover borderless>
           <thead>
             <tr>
-              {/* <th>Name of the symptom</th>
-              <th>Number of users reported this symptom</th>
-              <th>Link to discussion</th> */}
+              
             </tr>
           </thead>
             {symptoms.map((symptom) => (

@@ -217,8 +217,8 @@ dolor eget semper maximus. Fusce consequat massa eu congue")
 puts "Creating Surveys!"
 Survey.destroy_all
 
-Survey.create(time_diagnozed: '2020-05-05', user_id: 3, symptom_id: 1)
-Survey.create(time_diagnozed: '2020-12-04', user_id: 2, symptom_id: 2)
+Survey.create(time_diagnozed: '2021-06-05', user_id: 3, symptom_id: 1)
+Survey.create(time_diagnozed: '2021-04-04', user_id: 2, symptom_id: 2)
 Survey.create(time_diagnozed: '2021-02-02', user_id: 1, symptom_id: 3)
 Survey.create(time_diagnozed: '2021-03-11', user_id: 3, symptom_id: 4)
 
@@ -251,12 +251,17 @@ puts "-> Created #{locations.length()} testing locations"
 puts "Creating likes!"
 Like.destroy_all
 
-Like.create(post_id: 1)
-Like.create(post_id: 2)
-Like.create(post_id: 3)
-Like.create(post_id: 4)
-
-
+Like.create(post_id: 1, user_id: 2)
+Like.create(post_id: 2, user_id: 3)
+Like.create(post_id: 3, user_id: 4)
+Like.create(post_id: 4, user_id: 2)
+Like.create(post_id: 5, user_id: 2)
+Like.create(post_id: 6, user_id: 3)
+Like.create(post_id: 7, user_id: 4)
+Like.create(post_id: 8, user_id: 2)
+Like.create(post_id: 1, user_id: 2)
+Like.create(post_id: 2, user_id: 3)
+Like.create(post_id: 3, user_id: 4)
 
 
 

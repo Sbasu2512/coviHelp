@@ -25,6 +25,12 @@ const MonthsList = (props) => {
       const date = new Date(survey.time_diagnozed);
       const dateNow = new Date();
 
+      if (paramsId === 6) {
+        if (timeDiffInMonths(date, dateNow) > 12) {
+          return survey;
+        }
+      }
+
       if (paramsId === 4) {
         if (
           timeDiffInMonths(date, dateNow) >= 4 &&
@@ -41,14 +47,7 @@ const MonthsList = (props) => {
           return survey;
         }
       }
-
-      if (paramsId === 6) {
-        if (timeDiffInMonths(date, dateNow) > 12) {
-          return survey;
-        }
-      }
-
-      if (paramsId === timeDiffInMonths(date, dateNow)) {
+      if (paramsId === timeDiffInMonths(date, dateNow) && paramsId !== 6 &&  paramsId !== 5) {
         return survey;
       }
       if (paramsId === 1 && timeDiffInMonths(date, dateNow) === 0) {
@@ -64,6 +63,7 @@ const MonthsList = (props) => {
       </div>
       {months.map((month) => {
         const surveysByMonth = getSurveysByMonth(surveys, month.id);
+        console.log(surveysByMonth, "SURVEYS BY MONTH", month.id)
         const symptomsBySurvey = symptoms.filter((symptom) =>
           surveysByMonth.find((survey) => survey.symptom_id === symptom.id)
         );

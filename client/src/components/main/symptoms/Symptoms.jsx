@@ -49,6 +49,7 @@ const Symptoms = () => {
 
   return (
     <div>
+      {console.log(state.surveys)}
       <Switch>
         <Route path="/symptoms/all/:id">
           <TestimonialsList
