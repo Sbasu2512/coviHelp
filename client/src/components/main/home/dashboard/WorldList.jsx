@@ -1,21 +1,28 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup'
 
 const WorldList = (props) => {
-  console.log(props.data.data)
   let data = props.data.data ;
       const world =  data? (data.map((countries, i) => {
-//(Math.round(num * 100) / 100).toFixed(2)
+        const population = (countries.population < 0 || countries.population === null)? '0': countries.population ;
+
+        const cases_per_million = (countries.latest_data.calculated.cases_per_million_population < 0 || countries.latest_data.calculated.cases_per_million_population === null) ? '0' : countries.latest_data.calculated.cases_per_million_population ;
+
+        const death_rate = (countries.latest_data.calculated.death_rate < 0 || countries.latest_data.calculated.death_rate === null)? '0' : countries.latest_data.calculated.death_rate ;
+
+        const recoveryRate = (countries.latest_data.calculated.recovery_rate < 0 || countries.latest_data.calculated.recovery_rate === null)? '0' : countries.latest_data.calculated.recovery_rate;
+        
       return (
         <div key={i}>
-          <Card style={{ width: '18rem' }} className="mb-2">
+          <CardGroup>
+          <Card style={{ width: '30%' }} bg={'dark'} text={'white'} border="light">
           <Card.Body>
             <Card.Title>{countries.name}</Card.Title>
-           <Card.Text> Population: {countries.population} </Card.Text>
-             <Card.Text> Cases/Million: {countries.latest_data.calculated.cases_per_million_population} </Card.Text>
-            
-                <Card.Text> Death Rate: {countries.latest_data.calculated.death_rate} % </Card.Text>
-           <Card.Text> Recovary Rate: {(Math.round((countries.latest_data.calculated.recovery_rate) * 100)/100).toFixed(2)} % </Card.Text>
+           <Card.Text> Population: {population} </Card.Text>
+             <Card.Text> Cases/Million: {cases_per_million} </Card.Text>
+                <Card.Text> Death Rate: {death_rate} % </Card.Text>
+           <Card.Text> Recovary Rate: {(Math.round((recoveryRate) * 100)/100).toFixed(2)} % </Card.Text>
             <Card.Text> Cases Today: {countries.today.confirmed} </Card.Text>
                 <Card.Text> Deaths Today: {countries.today.deaths}  </Card.Text>
                 <Card.Text> Total Confirmed Cases: {countries.latest_data.confirmed}   </Card.Text>
@@ -24,6 +31,7 @@ const WorldList = (props) => {
                 <Card.Text> Last Updated on {countries.updated_at} </Card.Text>
           </Card.Body>
   </Card>
+  </CardGroup>
         </div>
       )
     })) : (
