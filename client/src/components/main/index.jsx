@@ -22,8 +22,8 @@ const Home = () => {
 
   useEffect (() => {
     Promise.all([
-      axios.get('/api/testing_locations'),
-      axios.get('/api/vaccination_locations'),
+      axios.get('http://localhost:3000/api/testing_locations'),
+      axios.get('http://localhost:3000/api/vaccination_locations'),
     ]).then(([ testLocations, vacLocations ]) => {
       navigator.geolocation.getCurrentPosition(function(position) {
         setUserCoordinates([position.coords.latitude, position.coords.longitude])

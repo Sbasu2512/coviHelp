@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   get '/api', to: 'api#index'
   
+  resources :dashboards
   namespace :api do
     resources :testing_locations, only: [:index] 
     resources :vaccination_locations, only: [:index] 
